@@ -1,0 +1,164 @@
+---
+title: 'Ciencia reproducible: qué, por qué, cómo (include English title too)'
+author: "Antonio Jesús Pérez-Luque^1^, Francisco Rodríguez-Sánchez^2^, Sara Varela^3^"
+output:
+  word_document:
+    fig_caption: yes
+    highlight: null
+    reference_docx: Repro_ms_template.docx
+    pandoc_args: [
+      "--csl", "ecology.csl"
+    ]
+bibliography: references.bib
+---
+
+
+> (1) Laboratorio de Ecología (iEcolab), Instituto Interuniversitario Sistema Tierra (CEAMA), Universidad de Granada, Avda. del Mediterráneo s/n, Granada 18006, España.
+
+> (2) Integrative Ecology Group, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
+
+> (3) Sara's affiliation.  
+
+
+> Autor para correspondencia: A.J. Pérez-Luque [ajperez@ugr.es]
+
+
+
+```{r knitr_setup, include=FALSE, cache=FALSE}
+
+library(rmarkdown)
+library(knitr)
+
+### Chunk options ###
+
+# Modify at your will #
+
+## Text results
+opts_chunk$set(echo = TRUE, warning=TRUE, message=TRUE)
+
+## Code decoration
+opts_chunk$set(tidy=TRUE, comment = NA, highlight = TRUE)
+
+## Cache
+opts_chunk$set(cache = 2, cache.path = "output/cache/")
+opts_chunk$set(cache.extra = rand_seed)
+
+## Plots
+opts_chunk$set(fig.path = "output/figures/")
+opts_chunk$set(dpi = 300, fig.align = "default")   # may want 'center' sometimes
+
+# Figure format
+opts_chunk$set(dev='png')  # e.g. choose among 'pdf', 'png', 'svg'...
+# may include specific dev.args as a list... see knitr help
+
+
+```
+
+
+```{r citations_setup, include=FALSE, cache=FALSE}
+
+library(knitcitations)
+cleanbib()   
+cite_options(citation_format = "pandoc")
+
+if (file.exists("refs2import.bib")) 
+  refs_from_file <- read.bibtex("refs2import.bib", check=FALSE)
+
+```
+
+
+# Resumen
+
+> Bla, bla, bla
+
+
+
+# Palabras clave
+
+> reproducibilidad; etc (4-6 keywords)
+
+
+# Keywords
+
+> reproducibility; etc (4-6 keywords)
+
+
+
+# Qué es la ciencia reproducible?
+
+La ciencia reproducible...
+
+Bla bla bla
+
+bla bla
+
+
+
+# Por qué es necesaria la reproducibilidad en Ciencia?
+
+Bla bla bla
+
+
+
+# Flujos de trabajo reproducibles
+
+Esta sección está subdividida en subsecciones.
+
+
+## Manejo de datos
+
+
+## Análisis (R) y escritura (Rmarkdown)
+
+
+## Paquetes en R
+
+
+## Control de versiones (git & github)
+
+
+
+Or cite by doi, e.g. `r citet("10.1098/rspb.2013.1372")`, thanks to `knitcitations` package `r citep(citation("knitcitations"))`. 
+
+# Referencias
+
+
+
+# Tablas
+
+Se aportarán los encabezamientos tanto en castellano como en inglés, en letra Arial 10 y en página independiente.
+
+
+
+# Pies de figura
+
+Página independiente. En castellano e inglés. Letra Arial 10.
+
+
+
+# Figuras 
+
+En páginas independientes
+
+
+
+# Mover esta lista de referencias a la sección de 'Referencias', más arriba en documento final (Word).
+
+```{r generate_references, cache=FALSE, include=FALSE, results='hide'}
+write.bibtex(file="references.bib")
+```
+
+
+
+
+
+
+```{r sessionInfo, cache=FALSE, echo=FALSE, eval=FALSE}
+#sessionInfo()
+devtools::session_info()
+```
+
+
+
+
+
