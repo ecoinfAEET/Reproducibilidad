@@ -1,26 +1,27 @@
 ---
-title: 'Ciencia reproducible: qué, por qué, cómo (include English title too)'
-author: "Antonio Jesús Pérez-Luque^1^, Francisco Rodríguez-Sánchez^2^, Sara Varela^3^"
+title: | 
+  | Ciencia reproducible: qué, por qué, cómo 
+  | Reproducible science: what, why, how
+author: 'Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^, Ignasi Bartomeus^1^ (*order to be determined*)'
 output:
   word_document:
     fig_caption: yes
     highlight: null
-    reference_docx: Repro_ms_template.docx
+    reference_docx: Ecosistemas_template.docx
     pandoc_args: [
-      "--csl", "ecology.csl"
+      "--csl", "american-journal-of-botany.csl"
     ]
 bibliography: references.bib
 ---
 
+> (1) Departamento de Ecología Integrativa, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
 
-> (1) Laboratorio de Ecología (iEcolab), Instituto Interuniversitario Sistema Tierra (CEAMA), Universidad de Granada, Avda. del Mediterráneo s/n, Granada 18006, España.
+> (2) Laboratorio de Ecología (iEcolab), Instituto Interuniversitario Sistema Tierra (CEAMA), Universidad de Granada, Avda. del Mediterráneo s/n, Granada 18006, España.
 
-> (2) Integrative Ecology Group, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
-
-> (3) Sara's affiliation.  
+> (3) Sara's affiliation.
 
 
-> Autor para correspondencia: A.J. Pérez-Luque [ajperez@ugr.es]
+> Autor para correspondencia: F. Rodríguez-Sánchez [frodriguez.work@gmail.com]
 
 
 
@@ -151,12 +152,6 @@ write.bibtex(file="references.bib")
 
 
 
-
-
-```{r sessionInfo, cache=FALSE, echo=FALSE, eval=FALSE}
-#sessionInfo()
-devtools::session_info()
-```
 
 
 
