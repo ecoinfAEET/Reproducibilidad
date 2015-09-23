@@ -72,7 +72,9 @@ if (file.exists("refs2import.bib"))
 
 > Bla, bla, bla
 
+# Abstract
 
+> Blah, blah, blah
 
 # Palabras clave
 
@@ -89,22 +91,28 @@ if (file.exists("refs2import.bib"))
 
 La ciencia reproducible...
 
-Bla bla bla
+Parrafo filosofico sobre por que la transparencia (reproducibilidad) ha de nacer de la uno mismo, y dar confianza, y no ha de ser impuesta por la desconfianza. Hemos de apelar a los cientificos, no a tener la obligación, sino el deso de hacer nuestro workflow reproducible.
 
-bla bla
+Parrafo sobre Reproducibilidad vs "repitabilidad". http://bioscience.oxfordjournals.org/content/56/12/958.full
 
+Parrafo ejemplos:
+Ejemplos de papers 100% reproducibles: Fitzroy en Journal of ecology? 
+Ejemplos datos publicos re-analizados: PNAS paper en huracanes.
 
 
 # Por qué es necesaria la reproducibilidad en Ciencia?
 
 Bla bla bla
 
-
+Parrafo por que es bueno para ti, desde un punto estrategico y de posicionamiento. Das un sello de calidad a tu ciencia. Adoptarla ahora te pone por delante, Cuando sea un estandard, ya no tendra merito.
 
 # Flujos de trabajo reproducibles
 
 Esta sección está subdividida en subsecciones.
 
+## Toma de datos, metodos,...
+
+No olvidemos que no todo empieza cuando abres rstudio (bueno, a veces sí). Toma de datos por observadores independientes, evitando o testando subjetividad (e.g. Winfree papers), Mantener el link entre datos fisicos y digitales. 
 
 ## Manejo de datos
 
@@ -120,6 +128,12 @@ Esta sección está subdividida en subsecciones.
 
 
 Or cite by doi, e.g. `r citet("10.1098/rspb.2013.1372")`, thanks to `knitcitations` package `r citep(citation("knitcitations"))`. 
+
+# La ciencia reproducible es dura
+
+Parrafo sobre barreras para adoptar un flujo reproducible. Tornar las barreras en puntos positivos. Te fuerza a ser más limpio, ordenado, y seguro de tus resultados. Es duro, pero es bueno. 
+
+Parrafo sobre estrategias para hacer el paso. No es cuestion de todo o nada. De hecho, intentar ser 100% reproducible de golpe lleva a frustración y abandono. Se trata de ganar batallas y empezar por las faciles. Quizas ejemplos de los propios autores. 
 
 # Referencias
 
