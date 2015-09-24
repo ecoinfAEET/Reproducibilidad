@@ -3,15 +3,15 @@ title: |
   | Ciencia reproducible: qué, por qué, cómo 
   | Reproducible science: what, why, how
 author: 'Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^, Ignasi Bartomeus^1^ (*order to be determined*)'
+
 output:
   word_document:
     fig_caption: yes
     highlight: null
     reference_docx: Ecosistemas_template.docx
-    pandoc_args: [
-      "--csl", "american-journal-of-botany.csl"
-    ]
+
 bibliography: references.bib
+csl: american-journal-of-botany.csl
 ---
 
 > (1) Departamento de Ecología Integrativa, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
@@ -26,7 +26,7 @@ bibliography: references.bib
 
 
 ```{r knitr_setup, include=FALSE, cache=FALSE}
-
+ 
 library(rmarkdown)
 library(knitr)
 
@@ -86,57 +86,77 @@ if (file.exists("refs2import.bib"))
 > reproducibility; etc (4-6 keywords)
 
 
+# Introducción 
+
+Un científico pasa semanas o meses intentando implementar un nuevo método de análisis publicado recientemente, a partir de la escueta descripción proporcionada en el artículo. Otro, extrañado por los resultados de un trabajo reciente, solicita a los autores los datos para reanalizarlos, pero los autores se niegan a compartir sus datos o los han perdido. Un jefe de grupo intenta repetir un análisis que publicó hace unos años con un nuevo dataset, pero el postdoc que se encargó de eso ya no está en el grupo y nadie más sabe o recuerda cómo hacerlo. En otro caso, un investigador es invitado a participar en un meta-análisis pero los datos necesarios se perdieron con el último ordenador, o se encuentran en un formato ilegible hoy día. Finalmente, un doctorando detecta, poco antes de enviar su manuscrito, un error en los datos, y tiene que emplear varios días (o semanas) para rehacer todos los análisis y actualizar todas las tablas y figuras del manuscrito, antes de poder enviarlo.
+
+Todas estas escenas son desgraciadamente frecuentes en el día a día de los científicos, y son evidencia del grave problema de reproducibilidad en Ciencia. La inmensa mayoría de los artículos científicos no son reproducibles, esto es, es muy difícil o incluso imposible trazar claramente el proceso de obtención de los resultados y volver a obtenerlos (reproducirlos), !incluso tratándose del mismo equipo de autores! ?Cuántas veces hemos querido revisitar un análisis hecho unos meses o años antes y no hemos sido capaces, bien porque los datos no están disponibles o no recordamos cómo hacerlo? Cuánto tiempo perdemos inútilmente en intentar reproducir algo (un análisis estadístico, una figura, una tabla) ya hecho previamente? [Bourne: 280 h]
+
+No podemos garantizar que ningún resultado/paper es correcto, pero sí reproducible [Peng]
+
 
 # Qué es la ciencia reproducible?
 
-La ciencia reproducible...
-
-Parrafo filosofico sobre por que la transparencia (reproducibilidad) ha de nacer de la uno mismo, y dar confianza, y no ha de ser impuesta por la desconfianza. Hemos de apelar a los cientificos, no a tener la obligación, sino el deso de hacer nuestro workflow reproducible.
-
-Parrafo sobre Reproducibilidad vs "repitabilidad". http://bioscience.oxfordjournals.org/content/56/12/958.full
+Parrafo sobre Reproducibilidad vs "repetibilidad". http://bioscience.oxfordjournals.org/content/56/12/958.full
 
 Parrafo ejemplos:
 Ejemplos de papers 100% reproducibles: Fitzroy en Journal of ecology? 
 Ejemplos datos publicos re-analizados: PNAS paper en huracanes.
 
 
+
 # Por qué es necesaria la reproducibilidad en Ciencia?
 
-Bla bla bla
+Parrafo filosofico sobre por que la transparencia (reproducibilidad) ha de nacer de la uno mismo, y dar confianza, y no ha de ser impuesta por la desconfianza. Hemos de apelar a los cientificos, no a tener la obligación, sino el deso de hacer nuestro workflow reproducible.
+
 
 Parrafo por que es bueno para ti, desde un punto estrategico y de posicionamiento. Das un sello de calidad a tu ciencia. Adoptarla ahora te pone por delante, Cuando sea un estandard, ya no tendra merito.
 
-# Flujos de trabajo reproducibles
-
-Esta sección está subdividida en subsecciones.
-
-## Toma de datos, metodos,...
-
-No olvidemos que no todo empieza cuando abres rstudio (bueno, a veces sí). Toma de datos por observadores independientes, evitando o testando subjetividad (e.g. Winfree papers), Mantener el link entre datos fisicos y digitales. 
-
-## Manejo de datos
 
 
-## Análisis (R) y escritura (Rmarkdown)
+# Cómo hacer Ciencia reproducible
 
-
-## Paquetes en R
-
-
-## Control de versiones (git & github)
-
-
-
-Or cite by doi, e.g. `r citet("10.1098/rspb.2013.1372")`, thanks to `knitcitations` package `r citep(citation("knitcitations"))`. 
-
-# La ciencia reproducible es dura
+La ciencia reproducible es dura
 
 Parrafo sobre barreras para adoptar un flujo reproducible. Tornar las barreras en puntos positivos. Te fuerza a ser más limpio, ordenado, y seguro de tus resultados. Es duro, pero es bueno. 
 
-Parrafo sobre estrategias para hacer el paso. No es cuestion de todo o nada. De hecho, intentar ser 100% reproducible de golpe lleva a frustración y abandono. Se trata de ganar batallas y empezar por las faciles. Quizas ejemplos de los propios autores. 
+Parrafo sobre estrategias para hacer el paso. No es cuestion de todo o nada. De hecho, intentar ser 100% reproducible de golpe lleva a frustración y abandono. Se trata de ganar batallas y empezar por las faciles. Quizas ejemplos de los propios autores.
+
+K Broman guides are very good. Also paper Tao of open science (Ecosphere)
+
+Esta sección está subdividida en subsecciones.
+
+
+## Toma y Manejo de datos [NACHO]
+
+No olvidemos que no todo empieza cuando abres rstudio (bueno, a veces sí). Toma de datos por observadores independientes, evitando o testando subjetividad (e.g. Winfree papers), Mantener el link entre datos fisicos y digitales. 
+
+
+## Análisis (R) y escritura (Rmarkdown) [PACO]
+
+
+## Control de versiones (git & github) [ANTONIO]
+
+
+## Paquetes en R [SARA]
+
+
+## Dependencias externas [PACO]
+
+Si queremos que nuestro análisis sea reproducible en el futuro, tenemos que asegurarnos de que tenemos controladas todas las dependencias externas (paquetes, etc). Si no, actualizaciones de paquetes pueden romper el workflow (e.g. el libro de knitr ya no era reproducible meses después). Esbozar soluciones: rctrack, packrat, checkpoint, drat, rocker...
+
+
+
+
+
+
+
+
+
 
 # Referencias
 
+Or cite by doi, e.g. `r citet("10.1098/rspb.2013.1372")`, thanks to `knitcitations` package `r citep(citation("knitcitations"))`. 
 
 
 # Tablas
@@ -154,6 +174,10 @@ Página independiente. En castellano e inglés. Letra Arial 10.
 # Figuras 
 
 En páginas independientes
+
+- [Peng Science 2011](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3383002/bin/nihms382015f1.jpg)
+- [Broken workflow](http://pakillo.github.io/Rmarkdown_talk_SevillaR_Nov2014/#/5)
+- [Git & version control](http://pakillo.github.io/Rmarkdown_talk_SevillaR_Nov2014/#/19)
 
 
 
