@@ -1,24 +1,23 @@
 ---
-title: | 
-  | Ciencia reproducible: qué, por qué, cómo 
-  | Reproducible science: what, why, how
-author: 'Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^, Ignasi Bartomeus^1^ (*order to be determined*)'
-
+title: "| Ciencia reproducible: qué, por qué, cómo \n| Reproducible science: what,
+  why, how\n"
+author: Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^,
+  Ignasi Bartomeus^1^ (*order to be determined*)
+csl: american-journal-of-botany.csl
 output:
+  pdf_document: default
   word_document:
     fig_caption: yes
     highlight: null
     reference_docx: Ecosistemas_template.docx
-
 bibliography: references.bib
-csl: american-journal-of-botany.csl
 ---
 
 > (1) Departamento de Ecología Integrativa, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
 
 > (2) Laboratorio de Ecología (iEcolab), Instituto Interuniversitario Sistema Tierra (CEAMA), Universidad de Granada, Avda. del Mediterráneo s/n, Granada 18006, España.
 
-> (3) Sara's affiliation.
+> (3) Departamento de Ciencias de la Vida, Facultad de Biología, Ciencias Ambientales y Química, Universidad de Alcalá, Campus Universitario. Ctra. Madrid-Barcelona, Km. 33,600, 28805 Alcalá de Henares, Madrid, España.
 
 
 > Autor para correspondencia: F. Rodríguez-Sánchez [frodriguez.work@gmail.com]
@@ -139,6 +138,53 @@ No olvidemos que no todo empieza cuando abres rstudio (bueno, a veces sí). Toma
 
 
 ## Paquetes en R [SARA]
+
+Una vez iniciado un proyecto para el cual estamos programando distintos análisis en forma de diferentes scripts en R, el método óptimo para organizar el código que vayamos generando es crear un paquete de R. La principal razón para hacer esto es que cualquier otra manera de organizar nuestro código (e.g. creando una carpeta con subcarpetas dentro de nuestra carpeta principal con los archivos relacionados con el manuscrito en ciernes) se hará ingobernable a medida que pase el tiempo y que nuestro código se complique. 
+
+Crear un paquete para reunir los scripts, la documentación de las funciones y los tests de las funciones, en contra de lo que pudiera parecer, no es un proceso difícil. Se trata de una estructura estándar en las cual las funciones van a funcionar (valga la redundancia), donde especificaremos las dependencias de nuestras funciones (qué otros paquetes estamos utilizando, y lo que también es muy importante, qué versiones de estos paquetes), además describiremos las funciones que hemos desarrollado y daremos ejemplos de uso para que un usuario externo (e incluso nosotros mismos en el futuro) pueda entender qué resultados va obtener y en qué formatos. 
+
+De esta manera, un paquete de R es una estructura estándar que ayuda a entender nuestro código a usuarios externos (y a nosotros mismos), y que además es fácilmente compartible. De este modo estaremos facilitando el trabajo en equipo y el desarrollo de utilizades más complejas (que necesariamente requieren de un equipo de desarrolladores), usando además un programa de control de versiones (como GIT) y compartiendo el código en un repositorio público (como https://github.com).
+
+Por todas estas razones, si queremos crear un proyecto de ciencia abierta y colaborativa en el cual programemos nuestras funciones en R, la manera óptima de hacerlo es creando un paquete de R a medida que vamos programando las funciones.
+
+### Estructura estándar de un paquete de R
+
+De manera general un paquete de R es una carpeta que debe tener al menos 3 subcarpetas (R, man y tests/testthat) y dos archivos de texto (DESCRIPTION y NAMESPACE) (e.g. https://github.com/ropensci/paleobioDB, leer Wickham 2015.R packages: organize, test, document and share your code, O'Reilly)
+
+#### R
+
+En esta carpeta será donde se guardan los archivos .R, osea, nuestros scripts de R. Cada función deberá llevar escrita su documentación inmediatamente encima de ella usando roxygen2 (https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) (para ver un ejemplo de una función real y su documentación escrita usando roxygen2 ver https://github.com/ropensci/paleobioDB/blob/master/R/pbdb\_taxonomic\_functions.R). Además tendremos que crear un archivo .R que se llame myfirstpackage-package.R, y en el cual expliquemos qué hace y como funciona nuestro paquete y que estará escrito en roxygen2 (https://github.com/ropensci/paleobioDB/blob/master/R/paleobioDB-package.R).
+
+#### man
+
+En esta carpeta se guardarán los archivos .Rd, es decir, los archivos de ayuda que se abrirán cuando se use la función ? y que además forman el manual oficial del paquete en pdf. Estos archivos no se deben escribir a mano sino que se crean cuando se ejecuta el comando roxygenize, que lee la documentación que hemos generado previamente para cada función de R (https://github.com/ropensci/paleobioDB/tree/master/man)
+
+#### Tests/testthat
+
+Además, debemos incorporar tests para cada función para comprobar que las funciones realmente están haciendo lo que realmente queremos. Los test son scripts de R que comprueban cada función (son archivos .R, ver https://cran.r-project.org/web/packages/testthat/testthat.pdf). Estos tests son fundamentales a la hora de mantener un paquete porque cuando los paquetes crecen y se hacen complejos las interdependencias entre funciones son menos evidentes, así que podríamos llegar a modificar una función sin darnos cuenta de que al hacerlo estamos rompiendo otra que depende de ella (y las razones pueden no ser evidentes a primera vista, e.g., cuestiones de formato de los datos). Para ver un ejemplo real de tests abrir: https://github.com/ropensci/paleobioDB/tree/master/tests/testthat.
+
+#### DESCRIPTION
+
+Es un archivo de texto en el cual se especifica el nombre del paquete, su versión, los autores, emails, las dependencias que tiene, etc. (ver https://github.com/ropensci/paleobioDB/blob/master/DESCRIPTION) (Nota: editar DESCRIPTION con RStudio, nunca con el block de notas).
+
+#### NAMESPACE
+
+Es un archivo de texto que se genera automáticamente al ejecutar el comando roxygenize en el cual se especifican los nombres de las funciones que estarán disponibles al cargar nuestro paquete, que serán nuestras funciones propias y las funciones que importemos o de las que dependamos. Si nuestro paquete tiene una función con el mismo nombre que otro que se haya cargado antes R genera un mensaje informando del problema (colisión de nombres). Para evitar colisiones de nombres puedes aplicar un prefijo a las funciones de tu paquete de forma que sus nombres no coincidan con los de ninguna otra función que haya sido programada en R.
+
+#### Crear el paquete
+
+Finalmente, después de haber ejecutado el comando roxygenize para generar los manuales y el NAMESPACE, podemos crear nuestro paquete ejecutando las siguientes líneas desde el símbolo del sistema o del bash:
+
+```coffee
+cd..
+R CMD build --resave-data myfirstpackage
+```
+
+Si nuestro paquete pasa el check –as-cran sin ningún warning podríamos incluso compartirlo en el CRAN de R. 
+
+```coffee
+R CMD check --as-cran myfirstpackage_0.1.tar.gz
+```
 
 
 ## Dependencias externas [PACO]
