@@ -153,7 +153,7 @@ De manera general un paquete de R es una carpeta que debe tener al menos 3 subca
 
 #### R
 
-En esta carpeta será donde se guardan los archivos .R, osea, nuestros scripts de R. Cada función deberá llevar escrita su documentación inmediatamente encima de ella usando roxygen2 (https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) (para ver un ejemplo de una función real y su documentación escrita usando roxygen2 ver https://github.com/ropensci/paleobioDB/blob/master/R/pbdb\_taxonomic\_functions.R). Además tendremos que crear un archivo .R que se llame myfirstpackage-package.R, y en el cual expliquemos qué hace y como funciona nuestro paquete y que estará escrito en roxygen2 (https://github.com/ropensci/paleobioDB/blob/master/R/paleobioDB-package.R).
+En esta carpeta será donde se guardan los archivos .R, osea, nuestros scripts de R. Cada función deberá llevar escrita su documentación inmediatamente encima de ella usando roxygen2 (https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) (para ver un ejemplo de una función real y su documentación escrita usando roxygen2 ver https://github.com/ropensci/paleobioDB/blob/master/R/pbdb_taxonomic_functions.R). Además tendremos que crear un archivo .R que se llame myfirstpackage-package.R, y en el cual expliquemos qué hace y como funciona nuestro paquete y que estará escrito en roxygen2 (https://github.com/ropensci/paleobioDB/blob/master/R/paleobioDB-package.R).
 
 #### man
 
