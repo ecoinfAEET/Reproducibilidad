@@ -1,16 +1,18 @@
 ---
 title: "| Ciencia reproducible: qué, por qué, cómo \n| Reproducible science: what,
   why, how\n"
+  
 author: Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^,
   Ignasi Bartomeus^1^ (*order to be determined*)
-csl: american-journal-of-botany.csl
+  
 output:
-  pdf_document: default
   word_document:
     fig_caption: yes
     highlight: null
     reference_docx: Ecosistemas_template.docx
+
 bibliography: references.bib
+csl: american-journal-of-botany.csl
 ---
 
 > (1) Departamento de Ecología Integrativa, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
@@ -89,7 +91,7 @@ if (file.exists("refs2import.bib"))
 
 Un científico pasa semanas o meses intentando implementar un nuevo método de análisis publicado recientemente, a partir de la escueta descripción proporcionada en el artículo. Otro, extrañado por los resultados de un trabajo reciente, solicita a los autores los datos para reanalizarlos, pero los autores se niegan a compartir sus datos o los han perdido. Un jefe de grupo intenta repetir un análisis que publicó hace unos años con un nuevo dataset, pero el postdoc que se encargó de eso ya no está en el grupo y nadie más sabe o recuerda cómo hacerlo. En otro caso, un investigador es invitado a participar en un meta-análisis pero los datos necesarios se perdieron con el último ordenador, o se encuentran en un formato ilegible hoy día. Finalmente, un doctorando detecta, poco antes de enviar su manuscrito, un error en los datos, y tiene que emplear varios días (o semanas) para rehacer todos los análisis y actualizar todas las tablas y figuras del manuscrito, antes de poder enviarlo.
 
-Todas estas escenas son desgraciadamente frecuentes en el día a día de los científicos, y son evidencia del grave problema de reproducibilidad en Ciencia. La inmensa mayoría de los artículos científicos no son reproducibles, esto es, es muy difícil o incluso imposible trazar claramente el proceso de obtención de los resultados y volver a obtenerlos (reproducirlos), !incluso tratándose del mismo equipo de autores! ?Cuántas veces hemos querido revisitar un análisis hecho unos meses o años antes y no hemos sido capaces, bien porque los datos no están disponibles o no recordamos cómo hacerlo? Cuánto tiempo perdemos inútilmente en intentar reproducir algo (un análisis estadístico, una figura, una tabla) ya hecho previamente? [Bourne: 280 h]
+Todas estas escenas son desgraciadamente frecuentes en el día a día de los científicos, y son evidencia del grave problema de reproducibilidad en Ciencia. La inmensa mayoría de los artículos científicos no son reproducibles, esto es, es muy difícil o incluso imposible trazar claramente el proceso de obtención de los resultados y volver a obtenerlos (reproducirlos), !incluso tratándose del mismo equipo de autores! ?Cuántas veces hemos querido revisitar un análisis hecho unos meses o años antes y no hemos sido capaces, bien porque los datos no están disponibles o no recordamos cómo hacerlo? Cuánto tiempo perdemos inútilmente en intentar reproducir algo (un análisis estadístico, una figura, una tabla) ya hecho previamente? [Bourne: 280 h] ?O en regenerar una figura tras corregir un error en los datos?
 
 No podemos garantizar que ningún resultado/paper es correcto, pero sí reproducible [Peng]
 
