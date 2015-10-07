@@ -135,6 +135,12 @@ No olvidemos que no todo empieza cuando abres rstudio (bueno, a veces sí). Toma
 
 
 ## Control de versiones (git & github) [ANTONIO]
+El *control de versiones* es un sistema que registra los cambios que se realizan sobre un archivo (o conjunto de archivos) a lo largo de la historia del mismo, permitiendo restarurar una versión específica del archivo en cualquier momento. 
+
+El control de versiones está instalado en la vida de los científicos y lo utilizamos en una o varias etapas durante el desarrollo cualquier investigación. Una forma sencilla de llevar a cabo un control de versiones, y quizá la mas común, consiste en realizar duplicados de los archivos (o de los directorios) con nombres poco informativos de los cambios aplicados (Figura *phd_comics*). Esta aproximación es muy simple pero también muy propensa a cometer errores (e.g. modificar, sobrescribir el archivo incorrecto). 
+
+#### De los sistemas de control de versiones locales a los distribuidos. 
+Para evitar este tipo de errores surgieron los *sistemas de control de versiones locales* donde los cambios sobre los archivos se mantenían bajo control en una base de datos. Sin embargo estos sistemas locales no permitían la colaboración, para lo cual se desarrollaron los *sistemas de control de versiones centralizados*, que consisten un servidor que contiene todos los archivos versionados y varios clientes que descargan los archivos desde ese lugar central. Este sistema, aunque ha sido ampliamente utilizado (Subversion, Perforce) presenta algunas desventajas: no es posible colaborar o guardar cambios si el servidor central está caido; pérdida de información en caso de que se corrompan los discos duros que almacenan la información en el servidor central, etc. Es por ello que surgieron los sistemas de control de versiones distribuidos (como Git o Mercurial) donde los clientes no solo descargan la última instantantea del archivo sino que replican el repositorio completamente, de tal forma que se hace una copia de seguridad de todos los datos. 
 
 
 ## Paquetes en R [SARA]
