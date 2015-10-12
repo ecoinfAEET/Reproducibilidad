@@ -131,11 +131,26 @@ Esta sección está subdividida en subsecciones.
 
 ## Toma y Manejo de datos [NACHO]
 
-No olvidemos que no todo empieza cuando abres rstudio (bueno, a veces sí). Toma de datos por observadores independientes, evitando o testando subjetividad (e.g. Winfree papers), Mantener el link entre datos fisicos y digitales. 
+Aunque en este articulo nos centramos en como las nuevas tecnologias nos permiten hacer nuestro workflow reproducible desde que tenemos los datos hasta que publicaos el paper, no hay que olvidar que el proceso empieza mucho antes con la toma de datos y antes aun con el diseño del proyecto. 
 
+El propio escrito con el proyecto inicial, no solo tiene el valor de conseguir financiación para el proeyecto, sino que nos sirve de guia. Diversos autores estan tomando la iniciativa de publicar abiertamente estos proyectos para asegurar la transparencia del proceso, para legitimizar la atribución de las ideas contenidas, y sobretodo, para que quede un registro de nuestras intenciones que se puedan confrontar con los resultados obtenidos (E. White webpage). Esto es importante para evitar p-hacking (ref and definition), y forma parte de un workflow reproducible y abierto (¿?). De hecho, en otras disciplinas, el pre-registro de experimentos es una practica habitual (ref). --quizas este parrafo sobra, pero de momento lo he colado aquí-- En qualquier caso, escribir protocolos detallados antes de coger los datos, y actualizarlos es el primer paso para poder reproducir el proceso. Esto lleva tiempo, y es tentador explicar verbalmente que datos vamos a tomar al equipo de trabajo, pero es la unica forma de dejar un registro, y no olvidar nada... Preparar tablillas para entrar datos en campo tambien asegura que no nos dejaremos ningun dato relevante, y estas tablillas podran ser re-usadas ( o adaptadas) en futuros proyectos, ahorrando tiempo entonces.
+
+Automatizar la toma de datos para que sea reproducible es algo más complicado, y variara enormemente segun el tipo de datos con los que trabajemos. De todas maneras hay algunas practicas más o menos comunes que pueden servir de guia. El primero es que las muestras físicas, cuando las haya, y los datos digitales siempre han de estar conectados. Esto hara que qualquier dato pueda ser verificado (mayormente por nosotros mismos) en el futuro. Preservar estas muestras físicas en el tiempo es de vital importancia, pero tremendamente dificil, ya uqe normalmente no hay presupuesto para ello, y dependiendo se su naturaleza requieren de costosa preservación y/o ocupan gran volumen. En el caso de que no haya espacio especimenes debidamente identificados pueden donarse a museos, etc?. 
+
+Cuando los datos se toman directamente en campo, es importante que estos sean reproducibles. Es decir, que se tomen de manera objetiva (numero de flores) y no subjetiva (porcentage de corvetura estimado) y que no haya un sesgo por observador (datos que mejoren con la practica). En el caso que se necesiten datos subjetivos, es importante que cotejar quan reproducible es el resultado, comparando medidas identicas por el mismo observado o entre observadores. Por ejemplo, en biologia del comportamiento, donde se suelen medir comportamientos, es comun  reportar reproducibilidad en medir estos comportamientos (e.g. registrados en video), pero esto aplica tambien a datos más simples, donde tendemos a confiar en que no haya sesgo. Este tipo de resultados deben ir en el material suplementario (e.g. Winfree papers). Otra practica realacionada es medir los datos de menera "ciega" siempre que sea posible, ya que el sesgo inconsciente que podemos introducir es muy grande (ref).
+
+La parte de toma de datos sigue confiandose a la breve reseña expuesta en el material y metodos, sin embargo, apoyar esta explicación con tests propios de reproducibilidad en su obtención, y dar los detalles de forma rigurosa pueden significar un cambio. Por un lado, aportar estos datos contribuyen a dar confianza al lector en tus resultaod, por otro, incluir detalles de que protocolos no funcionaron, o se hubieron de adaptar, puede salvar muchas horas a alguin interesado en repetir esa clase de muestreo.
+
+Entrar datos es una de las partes más tediosas y aparantemente fáciles, pero sorprendentemente es muy propensa a generar errores "tontos". Usar bases de datos con campos fijos ayuda a minimizar estos errores. Este tambien es el momento de crear los metadatos, ya que es cuando estan frescos en la memoria y el coste es bajo. EXPLICAR QUE SON Y POR QUE ASEGURAN REPRODUCINBILIDAD. Si no lo haces ahora, lo más probable es que no lo hagas nunca, ya que cuando ha acabado el proyecto no recuerdas bien las cosas, y "da mucho traajo". Sin embargo, tener bien documentado los datos no solo es bueno para compartir datos, sino como recalcamos en este articulo, para ti mismo en tres meses vista. Si usas R, una alternativa es la libreria EML ... Añadir algo sobre tidy data? quizas solo la ref. 
+
+Una vez los datos estan en una base de datos, o simplemente un o varios csv's es el momento de limpiar los datos. Algo que hay que hacer de forma reproducible. 
+You can't reproduce… if you don't understand where a number came from.
+You can't reproduce… what you don't remember. And trust me: you won't.
+You can't reproduce… what you've lost. What if you need access to a file as it existed 1, 10, or 100, or 1000 days ago? - incremental back up (Git, Dropbox, Time machine...)
 
 ## Análisis (R) y escritura (Rmarkdown) [PACO]
 
+Yo pondria aquí manejo de datos (manipulacion de datos nunca sobre el original, dplyr, regex, etc...)
 
 ## Control de versiones (git & github) [ANTONIO]
 El *control de versiones* es un sistema que registra los cambios que se realizan sobre un archivo (o conjunto de archivos) a lo largo de la historia del mismo, permitiendo restarurar una versión específica del archivo en cualquier momento. 
@@ -200,7 +215,7 @@ R CMD check --as-cran myfirstpackage_0.1.tar.gz
 
 Si queremos que nuestro análisis sea reproducible en el futuro, tenemos que asegurarnos de que tenemos controladas todas las dependencias externas (paquetes, etc). Si no, actualizaciones de paquetes pueden romper el workflow (e.g. el libro de knitr ya no era reproducible meses después). Esbozar soluciones: rctrack, packrat, checkpoint, drat, rocker...
 
-
+## hay que decir algo de data preservation in the long term??
 
 
 
