@@ -112,6 +112,7 @@ Parrafo filosofico sobre por que la transparencia (reproducibilidad) ha de nacer
 
 
 Parrafo por que es bueno para ti, desde un punto estrategico y de posicionamiento. Das un sello de calidad a tu ciencia. Adoptarla ahora te pone por delante, Cuando sea un estandard, ya no tendra merito.
+Por ejemplo, Molecular Ecology states that "Papers with exemplary data and code archiving are more valuable for future research, and, all else being equal, will be given higher priority for publication" (http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291365-294X/homepage/ForAuthors.html)
 
 
 
