@@ -10,9 +10,9 @@ output:
     fig_caption: yes
     highlight: null
     reference_docx: Ecosistemas_template.docx
-
+    
 bibliography: references.bib
-csl: american-journal-of-botany.csl
+csl: ecosistemas.csl
 ---
 
 > (1) Departamento de Ecología Integrativa, Estación Biológica de Doñana (EBD-CSIC), Consejo Superior de Investigaciones Científicas, Avda. Américo Vespucio s/n, E-41092 Sevilla, España.
@@ -33,17 +33,14 @@ library(knitr)
 
 ### Chunk options ###
 
-# Modify at your will #
-
 ## Text results
-opts_chunk$set(echo = TRUE, warning=TRUE, message=TRUE)
+opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
 
 ## Code decoration
-opts_chunk$set(tidy=TRUE, comment = NA, highlight = TRUE)
+opts_chunk$set(tidy = TRUE, comment = NA, highlight = TRUE)
 
 ## Cache
 opts_chunk$set(cache = 2, cache.path = "output/cache/")
-opts_chunk$set(cache.extra = rand_seed)
 
 ## Plots
 opts_chunk$set(fig.path = "output/figures/")
@@ -59,12 +56,6 @@ opts_chunk$set(dev='png')  # e.g. choose among 'pdf', 'png', 'svg'...
 
 ```{r citations_setup, include=FALSE, cache=FALSE}
 
-library(knitcitations)
-cleanbib()   
-cite_options(citation_format = "pandoc")
-
-if (file.exists("refs2import.bib")) 
-  refs_from_file <- read.bibtex("refs2import.bib", check=FALSE)
 
 ```
 
@@ -95,6 +86,8 @@ Todas estas escenas son desgraciadamente frecuentes en el día a día de los cie
 
 En este paper presentamos las ventajas de adoptar un flujo de trabajo reproducible, y que herramientas nos pueden ayudar a ello. 
 
+
+
 # Qué es la ciencia reproducible?
 
 La reproducibilidad es uno de los principios esenciales del método científico, y se refiere a la capacidad que tenga una prueba o experimento de ser replicado. De hecho, el formato actual de todos los articulos cientificos dedica un apartado entero a explicar detalladamente el proceso seguido para obtener los resultados con el objetivo de que otros puedan validarlos. Historicamente, el enfasis ha estado en dar suficiente información para que el resultado pueda repetirse en otro laboratorio, es decir, volver a recoger datos, analizarlos de forma similar y comprobar que los resultados son consistentes [http://bioscience.oxfordjournals.org/content/56/12/958.full]. Sinembargo, se ha descuidado más que la obtencion del resultado presentado pueda ser trazado y reproducido exactamente como se presenta en el articulo. Los dos conceptos, reproducibilidad del resultado, y repetibilidad en el tiempo estan altamente interconnectados, pero aqui queremos hablar sobretodo del primero, ya que si presentamos los resultados de forma reproducible, seguro que seran faciles de repetir (con exito o no) en el futuro. Sin embargo, los tres o cuatro parrafors de material y metodos, dificilmente continen toda la informacion necesaria. 
@@ -103,6 +96,8 @@ En ecologia especialmente, el proceso de toma de datos en campo o laboratorio es
 Ejemplos de papers 100% reproducibles: Fitzroy en Journal of ecology? 
 Ejemplos datos publicos re-analizados: PNAS paper en huracanes.
 
+
+
 # Por qué es necesaria la reproducibilidad en Ciencia?
 
 El concepto de reproducibilidad esta ligado al de transparencia y movimiento de ciencia abierta. Con el incremento de la complejidad por ejemplo de metodos estadisticos, tambien incrementa la posibilidad de cometer errores. Como cientificos, no podemos garantizar que ningún resultado/paper es correcto, pero sí reproducible [Peng]. Sin ebargo, abogamos por que la reproducibilidad ha de nacer de la uno mismo, y ha de ser una forma de dar confianza en nuestros resultados, y no ha de ser impuesta por la desconfianza. Queremos apelar a los cientificos a querer apostar por la transparencia para así mejorar la calidad de la ciencia. No hemos de tener la obligación de hacerlo, sino el deso de hacer nuestro proceso de trabajo reproducible.
@@ -110,6 +105,8 @@ El concepto de reproducibilidad esta ligado al de transparencia y movimiento de 
 Hacer ciencia reproducible no solo es bueno para la Ciencia en mayusculas, sino tambien para ti (para nosotros) como cientificos. Enseñar la reproducibilidad de tus resutados te posiciona desde un punto de vista estrategico como cientifico comprometido. Das un sello de calidad a tu ciencia, especialmente ahora cuando aun no es la norma. Por ejemplo, Molecular Ecology menciona "Papers with exemplary data and code archiving are more valuable for future research, and, all else being equal, will be given higher priority for publication" (http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291365-294X/homepage/ForAuthors.html). Adoptarla ahora una estrategia reproducible te pone por delante, sinembargo, cuando sea un estandard de aqui a pocos años (e.g. Methods in Ecology and Evolution ya esta trabajando para hacer obligatorio depositar el codigo usado para el paper), ya no tendra el mismo merito.
 
 Además de estas razones, en las siguientes secciones destacamos como el hacer ciencia reproducible es increiblemente util para optimizar la forma de trabajar, mejorar tu rendimiento y eficiencia, y reducir el numero de errores.
+
+
 
 # Cómo hacer Ciencia reproducible
 
@@ -122,6 +119,8 @@ Parrafo sobre estrategias para hacer el paso. No es cuestion de todo o nada. De 
 K Broman guides are very good. Also paper Tao of open science (Ecosphere)
 
 Esta sección está subdividida en subsecciones. CItar aqui la figura de ANtonio
+
+
 
 
 ## Toma y Manejo de datos [NACHO]
@@ -138,9 +137,13 @@ Entrar datos en un soporte digital es una de las partes más tediosas y aparante
 
 Una vez los datos estan en una base de datos, o simplemente un o varios csv's es el momento de limpiar los datos. Algo que hay que hacer de forma reproducible. 
 
+
+
 ## Análisis (R) y escritura (Rmarkdown) [PACO]
 
 Yo pondria aquí manejo de datos (manipulacion de datos nunca sobre el original, dplyr, regex, etc...)
+
+
 
 ## Control de versiones (git & github) [ANTONIO]
 El *control de versiones* es un sistema que registra los cambios que se realizan sobre un archivo (o conjunto de archivos) a lo largo de la historia del mismo, permitiendo restarurar una versión específica del archivo en cualquier momento. 
