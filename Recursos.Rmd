@@ -1,0 +1,15 @@
+---
+title: "Recursos"
+author: Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^, Ignasi Bartomeus^1^ (*order to be determined*)
+output: pdf_document
+---
+
+
+
+# Manejo de datos
+
+# Rmarkdown
+
+# Paquetes de R
+
+# Control de versiones (Git)
