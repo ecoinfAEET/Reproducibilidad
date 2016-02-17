@@ -1,0 +1,49 @@
+---
+title: "Creación de paquetes de R"
+output: pdf_document
+---
+
+# Estructura estándar de un paquete de R
+
+De manera general un paquete de R es una carpeta que debe tener al menos 3 subcarpetas (R, man y tests/testthat) y dos archivos de texto (DESCRIPTION y NAMESPACE). 
+
+## R
+
+En esta carpeta se guardan los archivos .R definiendo las funciones. Cada función deberá llevar escrita su documentación inmediatamente encima de ella usando [`roxygen2`](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) ([ver ejemplo](https://github.com/ropensci/paleobioDB/blob/master/R/pbdb_taxonomic_functions.R)). Además tendremos que crear un archivo .R llamado `myfirstpackage-package.R` donde expliquemosm, de nuevo usando `roxygen2` qué hace y cómo funciona nuestro paquete ([ejemplo](https://github.com/ropensci/paleobioDB/blob/master/R/paleobioDB-package.R)).
+
+## man
+
+En esta carpeta se guardarán los archivos .Rd, es decir, los archivos de ayuda que explican todos los detalles de la función. Estos archivos se abren cuando se usa la función ? y además forman el manual oficial del paquete en pdf. Estos archivos no se deben escribir a mano sino que se crean automáticamente cuando se ejecuta el comando `roxygenize` ([ejemplo](https://github.com/ropensci/paleobioDB/tree/master/man)).
+
+## tests/testthat
+
+Además, debemos incorporar tests para cada función para comprobar que están funcionando bien y haciendo lo que realmente queremos. Los test son scripts de R que comprueban cada función (son archivos .R, ver https://cran.r-project.org/web/packages/testthat/testthat.pdf). Estos tests son fundamentales a la hora de mantener un paquete porque cuando los paquetes crecen y se hacen complejos las interdependencias entre funciones son menos evidentes, así que podríamos llegar a modificar una función sin darnos cuenta de que al hacerlo estamos rompiendo otra que depende de ella (y las razones pueden no ser evidentes a primera vista, e.g., cuestiones de formato de los datos) ([ejemplo](https://github.com/ropensci/paleobioDB/tree/master/tests/testthat)).
+
+
+## DESCRIPTION
+
+Es un archivo de texto en el cual se especifica el nombre del paquete, su versión, los autores, emails, las dependencias que tiene, etc. ([ejemplo](https://github.com/ropensci/paleobioDB/blob/master/DESCRIPTION)). 
+
+
+## NAMESPACE
+
+Es un archivo de texto que se genera automáticamente al ejecutar el comando `roxygenize` en el cual se especifican los nombres de las funciones que estarán disponibles al cargar nuestro paquete, incluyendo funciones propias del paquete y funciones importadas de otros paquetes. Si nuestro paquete tiene una función con el mismo nombre que otro que se haya cargado antes, R genera un mensaje informando del problema (colisión de nombres). Para evitar colisiones de nombres se puede aplicar un prefijo de forma que los nombres de las funciones no coincidan con los de ninguna otra función que haya sido programada en R.
+
+
+
+# Crear el paquete
+
+Finalmente, después de haber ejecutado el comando `roxygenize` para generar los manuales y el NAMESPACE, podemos crear nuestro paquete ejecutando:
+
+```
+R CMD build --resave-data myfirstpackage
+```
+
+Si nuestro paquete pasa el check –as-cran sin ningún problema podríamos incluso compartirlo en el repositorio CRAN de R. 
+
+```
+R CMD check --as-cran myfirstpackage_0.1.tar.gz
+```
+
+
+Evidentemente hay muchos más elementos que pueden añadirse a un paquete. [Aquí](http://r-pkgs.had.co.nz/) hay una guía muy completa y sencilla para crear paquetes.
