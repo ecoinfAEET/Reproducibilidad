@@ -1,16 +1,15 @@
 ---
-title: "| Ciencia reproducible: qué, por qué, cómo \n| Reproducible science: what,
-  why, how\n"
+title: "| Ciencia reproducible: qué, por qué, cómo \n| Reproducible science: what, why, how\n"
   
-author: Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^,
-  Ignasi Bartomeus^1^ (*order to be determined*)
+author: Francisco Rodríguez-Sánchez^1^, Antonio Jesús Pérez-Luque^2^, Sara Varela^3^, Ignasi Bartomeus^1^ (*order to be determined*)
   
 output:
   word_document:
     fig_caption: yes
+    fig_height: 6
+    fig_width: 7.5
     highlight: null
     reference_docx: Ecosistemas_template.docx
-    
 bibliography: references.bib
 csl: ecosistemas.csl
 ---
@@ -28,236 +27,328 @@ csl: ecosistemas.csl
 
 ```{r knitr_setup, include=FALSE, cache=FALSE}
  
-library(rmarkdown)
 library(knitr)
 
 ### Chunk options ###
 
 ## Text results
-opts_chunk$set(echo = TRUE, warning = TRUE, message = TRUE)
+opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 ## Code decoration
-opts_chunk$set(tidy = TRUE, comment = NA, highlight = TRUE)
+opts_chunk$set(tidy = FALSE, comment = NA, highlight = FALSE)
 
 ## Cache
-opts_chunk$set(cache = 2, cache.path = "output/cache/")
+#opts_chunk$set(cache = 2, cache.path = "output/cache/")
 
 ## Plots
-opts_chunk$set(fig.path = "output/figures/")
-opts_chunk$set(dpi = 300, fig.align = "default")   # may want 'center' sometimes
+#opts_chunk$set(fig.path = "output/figures/")
+#opts_chunk$set(dpi = 300, fig.align = "default")   # may want 'center' sometimes
 
 # Figure format
-opts_chunk$set(dev='png')  # e.g. choose among 'pdf', 'png', 'svg'...
+#opts_chunk$set(dev='png')  # e.g. choose among 'pdf', 'png', 'svg'...
 # may include specific dev.args as a list... see knitr help
 
 
 ```
 
 
-```{r citations_setup, include=FALSE, cache=FALSE}
-
-
-```
 
 
 # Resumen
 
-> Bla, bla, bla
+> El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. 
+
 
 # Abstract
 
-> Blah, blah, blah
+> El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. 
+
 
 # Palabras clave
 
-> reproducibilidad; ciencia abierta; etc (4-6 keywords)
+> reproducibilidad; ciencia abierta; análisis de datos; ecoinformática; ecología; programación (4-6 keywords)
 
 
 # Keywords
 
-> reproducibility; open science; etc (4-6 keywords)
+> reproducibility; open science; data analysis; ecoinformatics; ecology; programming (4-6 keywords)
 
 
 # Introducción 
 
-Un científico pasa semanas o meses intentando implementar un nuevo método de análisis publicado recientemente, a partir de la escueta descripción proporcionada en el artículo. Otro, extrañado por los resultados de un trabajo reciente, solicita a los autores los datos para reanalizarlos, pero los autores se niegan a compartir sus datos o los han perdido. Un jefe de grupo intenta repetir un análisis que publicó hace unos años, ahora con un nuevo dataset, pero el postdoc que se encargó de eso ya no está en el grupo y nadie más sabe o recuerda cómo hacerlo. En otro caso, un investigador es invitado a participar en un meta-análisis pero los datos necesarios se perdieron con el último ordenador, o se encuentran en un formato ilegible hoy día. Finalmente, un doctorando detecta, poco antes de enviar su manuscrito, un error en los datos, y tiene que emplear varios días (o semanas) para rehacer todos los análisis y actualizar todas las tablas y figuras del manuscrito, antes de poder enviarlo. [propongo poner el parrafo en primera persona: E.g. A menudo pasamos semanas... Cuando solicitamos datos no es raro que ... Inclusso nuestros propios datos son perdidos, o cuando detectamos fallos... solo una idea.]
+¿Cuántas veces hemos querido revisitar un análisis meses o años después y no hemos sido capaces, bien porque no recordamos cómo hacerlo o los datos no están fácilmente disponibles? ¿Cuánto tiempo perdemos en rehacer análisis estadísticos, figuras o tablas tras corregir un error en los datos, o siguiendo las recomendaciones de un revisor? ¿Cuánto tiempo invertimos intentando implementar un nuevo método de análisis a partir de la escueta descripción proporcionada en un artículo? ¿Cuántas veces hemos intentado recabar datos infructuosamente porque los autores han perdido los datos, su formato es ilegible hoy día, o simplemente se niegan a compartirlos? 
 
-Todas estas escenas son desgraciadamente frecuentes en el día a día de los científicos, y son evidencia del grave problema de reproducibilidad en Ciencia. La inmensa mayoría de los artículos científicos no son reproducibles, esto es, es muy difícil o incluso imposible trazar claramente el proceso de obtención de los resultados y volver a obtenerlos (reproducirlos), !incluso tratándose del mismo equipo de autores! ?Cuántas veces hemos querido revisitar un análisis hecho unos meses o años antes y no hemos sido capaces, bien porque los datos no están disponibles o no recordamos cómo hacerlo? Cuánto tiempo perdemos inútilmente en intentar reproducir algo (un análisis estadístico, una figura, una tabla) ya hecho previamente? [Bourne: 280 h] ?O en regenerar una figura tras corregir un error en los datos?
+Todas estas escenas son desgraciadamente frecuentes en el día a día de los científicos, y evidencian un grave problema de reproducibilidad en ciencia [@Peng2011]. La inmensa mayoría de los artículos científicos no son reproducibles, esto es, resulta muy difícil o incluso imposible trazar claramente el proceso de obtención de los resultados y volver a obtenerlos (reproducirlos). ¡Incluso tratándose del mismo equipo de autores! En este artículo discutimos por qué los resultados científicos deben ser reproducibles, presentamos las ventajas de adoptar un flujo de trabajo reproducible, e introducimos las principales herramientas para ello. 
 
-En este paper presentamos las ventajas de adoptar un flujo de trabajo reproducible, y que herramientas nos pueden ayudar a ello. 
 
 
 
-# Qué es la ciencia reproducible?
+# ¿Qué es la ciencia reproducible?
 
-La reproducibilidad es uno de los principios esenciales del método científico, y se refiere a la capacidad que tenga una prueba o experimento de ser replicado. De hecho, el formato actual de todos los articulos cientificos dedica un apartado entero a explicar detalladamente el proceso seguido para obtener los resultados con el objetivo de que otros puedan validarlos. Historicamente, el enfasis ha estado en dar suficiente información para que el resultado pueda repetirse en otro laboratorio, es decir, volver a recoger datos, analizarlos de forma similar y comprobar que los resultados son consistentes [http://bioscience.oxfordjournals.org/content/56/12/958.full]. Sinembargo, se ha descuidado más que la obtencion del resultado presentado pueda ser trazado y reproducido exactamente como se presenta en el articulo. Los dos conceptos, reproducibilidad del resultado, y repetibilidad en el tiempo estan altamente interconnectados, pero aqui queremos hablar sobretodo del primero, ya que si presentamos los resultados de forma reproducible, seguro que seran faciles de repetir (con exito o no) en el futuro. Sin embargo, los tres o cuatro parrafors de material y metodos, dificilmente continen toda la informacion necesaria. 
+*"A scientific article is advertising, not scholarship. The actual scholarship is the full software environment, code and data, that produced the result."*
+Claerbout & Karrenbach 1992
 
-En ecologia especialmente, el proceso de toma de datos en campo o laboratorio es dificil de reproducir exactamente por que intervienen componentes estocasticos (e.g. comportamiento animal). Sí se puede replicar, pero no reproducir. El resto del proceso, sobretodo el manejo y analisis de datos, sí que puede y debe ser completamente reproducible. De hecho cada vez hay más papers... Parrafo ejemplos:
-Ejemplos de papers 100% reproducibles: Fitzroy en Journal of ecology? 
-Ejemplos datos publicos re-analizados: PNAS paper en huracanes.
+*“A scientific publication is not the scholarship itself, it is merely advertising of the scholarship. The actual scholarship is the complete software environment and the complete set of instructions which generated the figures.”*
+Donoho et al. 2009
 
+(choose one of the above)
 
 
-# Por qué es necesaria la reproducibilidad en Ciencia?
+La ciencia se caracteriza por la presencia de unas pautas metodológicas que garantizan su validez epistemológica [@Pigliucci2013g]. Todos los artículos científicos empíricos tienen una sección de métodos explicando los pasos seguidos en la recolección y análisis de datos. Esta información resulta crucial para evaluar racionalmente la veracidad y robustez de las conclusiones del artículo, así como para permitir futuras repeticiones del estudio por otros autores. Sin embargo, la escueta descripción verbal que aparece típicamente en esta sección de métodos resulta a todas luces insuficiente para conocer todos los detalles del análisis (**Fig. 1)**. Resulta muy difícil, si no imposible, recomponer todos los pasos dados en un proyecto de investigación a partir de una breve descripción verbal [@Ince2012]. El problema resulta aún más acuciante con el aumento de la complejidad computacional en ecología en las últimas décadas [@Michener2012].
 
-El concepto de reproducibilidad esta ligado al de transparencia y movimiento de ciencia abierta. Con el incremento de la complejidad por ejemplo de metodos estadisticos, tambien incrementa la posibilidad de cometer errores. Como cientificos, no podemos garantizar que ningún resultado/paper es correcto, pero sí reproducible [Peng]. Sin ebargo, abogamos por que la reproducibilidad ha de nacer de la uno mismo, y ha de ser una forma de dar confianza en nuestros resultados, y no ha de ser impuesta por la desconfianza. Queremos apelar a los cientificos a querer apostar por la transparencia para así mejorar la calidad de la ciencia. No hemos de tener la obligación de hacerlo, sino el deso de hacer nuestro proceso de trabajo reproducible.
+Un estudio científico es reproducible si el texto del artículo viene acompañado de código (texto interpretable por una computadora) que permite recrear exactamente todos los resultados y figuras incluidos en el artículo a partir de los datos originales [@Marwick2016]. El concepto es por tanto diferente al de repetibilidad, que se refiere a la posibilidad de replicar el mismo estudio (con nuevos datos) a partir de la información proporcionada en el artículo. La reproducibilidad se relaciona principalmente con la transparencia, trazabilidad, y completitud del protocolo seguido para llegar a unos resultados concretos a partir de un conjunto de datos determinado. La reproducibilidad no es una cualidad binaria sino un gradiente que va desde trabajos totalmente irreproducibles (que sólo contienen el texto, tablas y figuras finales) a estudios perfectamente reproducibles donde la integración de texto, código y datos permite regenerar fácilmente el resultado final a partir de los datos originales (**Fig. 2**).
 
-Hacer ciencia reproducible no solo es bueno para la Ciencia en mayusculas, sino tambien para ti (para nosotros) como cientificos. Enseñar la reproducibilidad de tus resutados te posiciona desde un punto de vista estrategico como cientifico comprometido. Das un sello de calidad a tu ciencia, especialmente ahora cuando aun no es la norma. Por ejemplo, Molecular Ecology menciona "Papers with exemplary data and code archiving are more valuable for future research, and, all else being equal, will be given higher priority for publication" (http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291365-294X/homepage/ForAuthors.html). Adoptarla ahora una estrategia reproducible te pone por delante, sinembargo, cuando sea un estandard de aqui a pocos años (e.g. Methods in Ecology and Evolution ya esta trabajando para hacer obligatorio depositar el codigo usado para el paper), ya no tendra el mismo merito.
 
-Además de estas razones, en las siguientes secciones destacamos como el hacer ciencia reproducible es increiblemente util para optimizar la forma de trabajar, mejorar tu rendimiento y eficiencia, y reducir el numero de errores.
 
 
 
-# Cómo hacer Ciencia reproducible
+# ¿Por qué es necesaria la reproducibilidad en ciencia?
 
-La ciencia reproducible es dura.
 
-Parrafo sobre barreras para adoptar un flujo reproducible. Tornar las barreras en puntos positivos. Te fuerza a ser más limpio, ordenado, y seguro de tus resultados. Es duro, pero es bueno. 
+*"Your closest collaborator is you 6 months ago, and you don't respond to emails."*
+P. Wilson
 
-Parrafo sobre estrategias para hacer el paso. No es cuestion de todo o nada. De hecho, intentar ser 100% reproducible de golpe lleva a frustración y abandono. Se trata de ganar batallas y empezar por las faciles. Quizas ejemplos de los propios autores.
 
-K Broman guides are very good. Also paper Tao of open science (Ecosphere)
+La reproducibilidad es un pilar fundamental del método científico: los resultados deben estar basados en datos y evidencias perfectamente contrastables. Ello distingue el conocimiento razonado del revelado [rebajar tono aquí?]. De hecho, ningún estudio científico puede garantizar que sus resultados sean correctos, pero sí reproducibles [@Peng2011]. La reproducibilidad es por tanto una garantía de transparencia y calidad. En los últimos años, empujada por la detección frecuente de errores graves en artículos que carecen de garantías de reproducibilidad, ha aumentado la presión por incrementar la reproducibilidad de los trabajos científicos [@Alberts2015b; @NatureEditorial2014a; @NatureEditorial2014b]. El número de revistas y fuentes de financiación que requieren la publicación de datos y código no para de crecer [@Stodden2013]. 
 
-Esta sección está subdividida en subsecciones. CItar aqui la figura de ANtonio
+Pero la reproducibilidad no debería ser vista como una obligación impuesta externamente, sino como una oportunidad de mejorar nuestra manera de hacer ciencia y la contribución de nuestros trabajos al progreso científico general. Este artículo pretende convencer especialmente de las múltiples ventajas personales que trae consigo el hacer ciencia reproducible (ver Tabla 1). Aunque el esfuerzo inicial no es trivial, las ventajas derivadas compensan sobradamente. Para empezar, tener flujos de trabajo reproducibles nos evita muchos de los problemas planteados al comienzo de este artículo. Por ejemplo, tras corregir un error en los datos o introducir nuevas observaciones podemos regenerar dinámicamente y sin ningún esfuerzo todas las tablas, figuras y resultados de un trabajo. Esto no sólo ahorra muchísimo tiempo sino que disminuye drásticamente los errores en el manuscrito final. Los errores pueden reducirse aún más permitiendo el escrutinio público del código previamente a la publicación del artículo [@Hampton2015a]. Igualmente, la existencia de un código que documenta fielmente el proceso de análisis facilita además tanto la escritura del manuscrito como su interpretación por coautores, revisores y los lectores finales [@Markowetz2015a]. Además, dicha transparencia facilita la aceptación del trabajo y puede incrementar su impacto posterior en términos de citas y reconocimiento [@Piwowar2007; @Vandewalle2012]. Por ejemplo, la revista *Molecular Ecology* menciona en sus [instrucciones a los autores](http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291365-294X/homepage/ForAuthors.html) que "los artículos con archivado de datos y código son más valiosos para investigaciones futuras, por lo que, a igualdad de condiciones, se les dará mayor prioridad para su publicación". La existencia de un código ordenado y bien estructurado permitirá además su reutilización en proyectos posteriores, ahorrando muchísimo tiempo y esfuerzos al equipo de investigación [@Garijo2013]. 
+[Mas ventajas? Este párrafo y la tabla 1 debería quedar muy fuerte y convincente. Si no convencemos de las ventajas, nadie va a ponerse a perder el tiempo con lo que viene debajo].
 
+Todas estas ventajas personales van acompañadas de enormes beneficios para el progreso científico común: los artículos reproducibles están mejor blindados frente a los errores, y cuando los contienen son detectados más fácilmente, favoreciendo el progreso científico [@Hayden2015]. Además, la reutilización de código pre-existente acelera este progreso al permitir que otros autores lo aprovechen para sus propias investigaciones en lugar de tener que empezar desde cero. 
 
 
 
-## Toma y Manejo de datos [NACHO]
 
-Aunque en este articulo nos centramos en como las nuevas tecnologias nos permiten hacer nuestro flujo de trabajo reproducible desde que tenemos los datos hasta que publicaos el paper, no hay que olvidar que el proceso empieza mucho antes de tener una base de datos. Empieza con el diseño del proyecto y la toma de datos.
 
-El propio escrito inicial del proyecto, aparte de para pedir financiación, sirve para poner por escrito hipotesis a testar y una hoja de ruta que describe por que, que y como queremos realizar el proyecto. Escribir protocolos detallados antes de coger los datos, y actualizarlos con las eventualidades que en ecologia siempre surgen, es el primer paso para poder replicar el proceso que se ha seguido. Esto lleva tiempo, y es tentador explicar verbalmente que datos vamos a tomar al equipo de trabajo, pero es la unica forma de dejar un registro, y no olvidar ningún detalle en la sección de "Material y metodos". Sobra decir, que preparar tablillas pre-definidas para entrar datos en campo tambien asegura que no nos dejaremos ningun dato relevante.
 
-Automatizar la toma de datos para que sea reproducible es algo más complicado y variara enormemente segun el tipo de datos con los que trabajemos. De todas maneras hay algunas practicas más o menos comunes que pueden servir de guia. El primero es que las muestras físicas, cuando las haya, y los datos digitales siempre han de estar conectados por un indicador único. Esto hara que qualquier dato pueda ser verificado (mayormente por nosotros mismos) en el futuro. Preservar estas muestras físicas en el tiempo es de vital importancia, pero tremendamente dificil, ya que normalmente no hay presupuesto para ello, y dependiendo se su naturaleza requieren de costosa preservación y/o ocupan gran volumen. Pensar en colecciones permanentes que puedan alojar estas muestras es a veces una buena opción. Por ejemplo, en el caso de especimenes debidamente identificados, estos pueden donarse a museos. 
+# Cómo hacer ciencia reproducible
 
-Cuando los datos se toman directamente en campo, es importante que estos sean repetibles. Es decir, que se tomen de manera objetiva (e.g. numeros exactos) y no subjetiva (e.g. porcentages estimados) y que no haya un sesgo por observador (e.g. observadores con diferente experiencia). En el caso que se necesiten datos subjetivos, es importante cotejar quan repetibles es el resultado comparando medidas identicas repetidas por el mismo observador o entre observadores. Por ejemplo, en biologia del comportamiento, donde se suelen medir comportamientos, es comun  reportar esta repetibilididad en medir comportamientos, pero esto aplica tambien a datos más simples, donde tendemos a confiar en que no haya sesgo. Este tipo de resultados deben ir en el material suplementario (e.g. Winfree papers). Otra practica relacionada es medir los datos de menera "ciega" (sin saber que tratamiento es qual cuando tomas los datos) siempre que sea posible, ya que el sesgo inconsciente que podemos introducir es muy grande (ref). Apoyar la sección de metodos con tests propios de repitibilidad y dar los detalles de forma rigurosa pueden significar un cambio importante en como se percibe un paper. Por un lado, aportar estos datos contribuyen a dar confianza al lector en tus resultaod, por otro, incluir detalles de que protocolos no funcionaron, o se hubieron de adaptar, puede salvar muchas horas a alguin interesado en repetir esa clase de muestreo.
+"You can't reproduce if you don't understand where a number came from.  
+You can't reproduce what you don't remember. And trust me: you won't.  
+You can't reproduce what you've lost. What if you need access to a file as it existed 1, 10, 100, or 1000 days ago?"  
+(Ben Bond-Lamberty)
 
-Entrar datos en un soporte digital es una de las partes más tediosas y aparantemente fáciles, pero propensa a generar errores. Usar bases de datos (o hojas de calculo) con estructuras ordenadas (Whickham 2014 Tidy data) y con campos de entrada pre-fijados (e.g. que solo las opciones previamente definidas sean aceptadas) ayuda a minimizar estos errores. Este tambien es el momento de crear los metadatos, ya que es cuando estan frescos en la memoria y el coste es bajo. Hay paquetes de R que facilitan este proceso usando estructuras de matadatos estandard como EML (ref al paquete de ropensci). Si no completas lo metadatos a la vez que los datos, lo más probable es que no lo hagas nunca, ya que cuando ha acabado el proyecto no recuerdas bien las cosas, y "da mucho trabajo". Sin embargo, tener bien documentado los datos no solo es bueno para compartir datos, sino como recalcamos en este articulo, para ti mismo en tres meses vista.
 
-Una vez los datos estan en una base de datos, o simplemente un o varios csv's es el momento de limpiar los datos. Algo que hay que hacer de forma reproducible. 
 
+Adoptar un flujo de trabajo reproducible requiere un esfuerzo inicial importante. Es necesario familiarizarse con diversas herramientas (bases de datos, programación, sistemas de control de versiones) lo cual lleva su tiempo. Recibir una formación adecuada y temprana (idealmente previa a la realización del proyecto de master o doctorado) facilita mucho las cosas. Dado que el interés por la ciencia reproducible es bastante reciente, en nuestro país la formación es aún escasa o inexistente, aún más en el campo de la ecología. Pero existen cursos, libros y material de aprendizaje fácilmente disponibles (ver **Apéndice 1**). 
 
+La reproducibilidad no es una cualidad binaria sino un gradiente, y conviene implementarla paso a paso en nuestra investigación para facilitar la transición. Un ejemplo extremo (pero preponderante) de irreproducibilidad sería aquel donde los datos son manipulados en una hoja de cálculo (e.g. Microsoft Excel), posteriormente analizados manualmente en programas estadísticos como Statistica o SPSS, las figuras realizadas en un programa gráfico (e.g. Sigmaplot), el texto escrito en un procesador de texto (e.g. Microsoft Word, Google Docs), y los valores de las tablas copiados a mano. Hoy día es frecuente que el análisis manual sea sustituido por un análisis mediante código de R, Python, o algún lenguaje similar. Aunque la utilización de código representa un avance importante en cuanto a reproducibilidad, dicho flujo de trabajo requiere todavía múltiples pasos manuales que rompen su dinamismo y abren la puerta a la introducción de errores (por ejemplo, al copiar manualmente múltiples valores a una tabla). En el otro extremo estarían los análisis puramente integrados donde el trabajo final puede ser reconstituido con un solo comando o click del ratón (**Fig. 2**). 
 
-## Análisis (R) y escritura (Rmarkdown) [PACO]
+A continuación repasamos los elementos más importantes de un flujo de trabajo reproducible: (i) manejo de datos; (ii) análisis de datos mediante código; (iii) control de versiones; (iv) organización de los archivos; y (v) manejo de las dependencias de software externo. Además de esbozar los principios básicos introduciremos las principales herramientas disponibles. En el **Apéndice 1** incluimos un listado de recursos para los que quieran aprender o profundizar más en cualquiera de estos aspectos. 
 
-Yo pondria aquí manejo de datos (manipulacion de datos nunca sobre el original, dplyr, regex, etc...)
+[Aquí debería ir la figura de Antonio sintetizando el workflow. Habría que actualizar la figura para reflejar el texto del ms]
 
 
 
-## Control de versiones (git & github) [ANTONIO]
-El *control de versiones* es un sistema que registra los cambios que se realizan sobre un archivo (o conjunto de archivos) a lo largo de la historia del mismo, permitiendo restarurar una versión específica del archivo en cualquier momento. 
 
-El control de versiones está instalado en la vida de los científicos y lo utilizamos en una o varias etapas durante el desarrollo cualquier investigación. Una forma sencilla de llevar a cabo un control de versiones, y quizá la mas común, consiste en realizar duplicados de los archivos (o de los directorios) con nombres poco informativos de los cambios aplicados (Figura *phd_comics*). Esta aproximación es muy simple pero también muy propensa a cometer errores (e.g. modificar, sobrescribir el archivo incorrecto). 
 
-#### De los sistemas de control de versiones locales a los distribuidos. 
-Para evitar este tipo de errores surgieron los *sistemas de control de versiones locales* donde los cambios sobre los archivos se mantenían bajo control en una base de datos. Sin embargo estos sistemas locales no permitían la colaboración, para lo cual se desarrollaron los *sistemas de control de versiones centralizados*, que consisten un servidor que contiene todos los archivos versionados y varios clientes que descargan los archivos desde ese lugar central. Este sistema, aunque ha sido ampliamente utilizado (Subversion, Perforce) presenta algunas desventajas: no es posible colaborar o guardar cambios si el servidor central está caido; pérdida de información en caso de que se corrompan los discos duros que almacenan la información en el servidor central, etc. Es por ello que surgieron los sistemas de control de versiones distribuidos (como Git o Mercurial) donde los clientes no solo descargan la última instantantea del archivo sino que replican el repositorio completamente, de tal forma que se hace una copia de seguridad de todos los datos. 
+## Recolección y manejo de datos 
 
-Añadiria algo más practico y menos arduo para animar a la gente a usarlo.
 
+El proceso de recolección y manejo de datos resulta crucial: cualquier error en esta primera etapa se propagará hasta los resultados finales. Por tanto es muy importante garantizar la calidad de este proceso, que podría dividirse en cinco etapas: (i) planificación; (ii) recolección; (iii) descripción; (iv) control de calidad; y (v) preservación [@Michener2012]. 
 
-## Paquetes en R [SARA]
+### Planificación
 
-Una vez iniciado un proyecto para el cual estamos programando distintos análisis en forma de diferentes scripts en R, el método óptimo para organizar el código que vayamos generando es crear un paquete de R. La principal razón para hacer esto es que cualquier otra manera de organizar nuestro código (e.g. creando una carpeta con subcarpetas dentro de nuestra carpeta principal con los archivos relacionados con el manuscrito en ciernes) se hará ingobernable a medida que pase el tiempo y que nuestro código se complique. [NB: yo discrepo aqui, creo que si no tienes funciones propias, y la mayoria de gente que lea esto no tiene, con un proyecto de Rstudio vas sobrado]
+Una buena planificación es la mejor forma de asegurar la calidad de los datos. Muchas instituciones (como la National Science Foundation de Estados Unidos) requieren la presentación de un 'data management plan' con cada proyecto. Dicho plan debe incluir información detallada acerca de qué datos se van a obtener y cómo van a recogerse, almacenarse y compartirse [@Michener2015] (por ejemplo véase https://www.dataone.org/sites/all/documents/DMP_Copepod_Formatted.pdf). Existen herramientas como DMPTool (https://dmptool.org/) muy útiles para elaborar esta planificación.
 
-Crear un paquete para reunir los scripts, la documentación de las funciones y los tests de las funciones, en contra de lo que pudiera parecer, no es un proceso difícil. Se trata de una estructura estándar en las cual las funciones van a funcionar (valga la redundancia), donde especificaremos las dependencias de nuestras funciones (qué otros paquetes estamos utilizando, y lo que también es muy importante, qué versiones de estos paquetes), además describiremos las funciones que hemos desarrollado y daremos ejemplos de uso para que un usuario externo (e incluso nosotros mismos en el futuro) pueda entender qué resultados va obtener y en qué formatos. 
 
-De esta manera, un paquete de R es una estructura estándar que ayuda a entender nuestro código a usuarios externos (y a nosotros mismos), y que además es fácilmente compartible. De este modo estaremos facilitando el trabajo en equipo y el desarrollo de utilizades más complejas (que necesariamente requieren de un equipo de desarrolladores), usando además un programa de control de versiones (como GIT) y compartiendo el código en un repositorio público (como https://github.com).
+### Recolección
 
-Por todas estas razones, si queremos crear un proyecto de ciencia abierta y colaborativa en el cual programemos nuestras funciones en R, la manera óptima de hacerlo es creando un paquete de R a medida que vamos programando las funciones.
+El proceso de obtención de datos ecológicos varía enormemente según el tipo de estudio, desde captura de organismos en el campo hasta descarga de imágenes satelitales. A pesar de esta heterogeneidad, un principio común a seguir es intentar conservar los datos brutos en su estado original de la mejor manera posible (por ejemplo, insectos capturados en un museo o una colección, fichas de campo en un archivo seguro, imágenes o capas GIS en un repositorio), y con un identificador único. Esto nos permitirá revisar estos datos en caso necesario. La metodología de obtención de datos debe quedar perfectamente registrada. 
 
-### Estructura estándar de un paquete de R
+[Yo no me metería mucho aquí en el proceso de obtención per se (diseño experimental, repetibilidad, etc) porque es otro mundo... Pero si quereis podemos rescatar algo de lo que escribió Nacho]
 
-De manera general un paquete de R es una carpeta que debe tener al menos 3 subcarpetas (R, man y tests/testthat) y dos archivos de texto (DESCRIPTION y NAMESPACE) (e.g. https://github.com/ropensci/paleobioDB, leer Wickham 2015.R packages: organize, test, document and share your code, O'Reilly)
 
-#### R
+### Descripción (metadatos)
 
-En esta carpeta será donde se guardan los archivos .R, osea, nuestros scripts de R. Cada función deberá llevar escrita su documentación inmediatamente encima de ella usando roxygen2 (https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) (para ver un ejemplo de una función real y su documentación escrita usando roxygen2 ver https://github.com/ropensci/paleobioDB/blob/master/R/pbdb_taxonomic_functions.R). Además tendremos que crear un archivo .R que se llame myfirstpackage-package.R, y en el cual expliquemos qué hace y como funciona nuestro paquete y que estará escrito en roxygen2 (https://github.com/ropensci/paleobioDB/blob/master/R/paleobioDB-package.R).
+Todo conjunto de datos debe ir acompañado de metadatos que provean una descripción detallada de lo que representa cada variable, cómo y dónde se tomó, en qué unidades está medida, etc. Estos metadatos pueden alojarse en un simple fichero de texto plano, pero en ecología existe un 'Ecological Metadata Language' (http://knb.ecoinformatics.org/software/eml/) que sirve de estándar para describir datos de manera interpretable por una computadora, lo cual trae consigo muchas ventajas. Nuevamente existen herramientas para facilitar la creación de estos metadatos (e.g. `Morpho` http://knb.ecoinformatics.org/morphoportal.jsp, o el paquete de R `eml` https://github.com/ropensci/EML/).
 
-#### man
 
-En esta carpeta se guardarán los archivos .Rd, es decir, los archivos de ayuda que se abrirán cuando se use la función ? y que además forman el manual oficial del paquete en pdf. Estos archivos no se deben escribir a mano sino que se crean cuando se ejecuta el comando roxygenize, que lee la documentación que hemos generado previamente para cada función de R (https://github.com/ropensci/paleobioDB/tree/master/man)
+### Control de calidad
 
-#### Tests/testthat
+El control de calidad de los datos es un paso imprescindible pero frecuentemente obviado. Siempre se introducen errores, ya sea en la toma de datos en el campo o al introducirlos en un ordenador, y es importante detectarlos antes de proceder al análisis. La utilización de plantillas que restrinjan el tipo de datos introducido (e.g. fecha en un formato determinado, valores numéricos dentro de un rango determinado, especie a elegir de un listado predefinido) evita la introducción de muchos errores desde el principio. En cualquier caso, es conveniente realizar un control de calidad final comprobando que todos los datos se ajustan a unos valores adecuados o razonables. Este control de calidad puede hacerse de manera reproducible e iterativa mediante funciones de importación de datos que incluyen tests para comprobar la validez de los datos (e.g. ver http://ropensci.org/blog/2015/06/03/baad). Además, es importante seguir algunas normas básicas de estructuración de los datos [@Wickham2014a] para facilitar su análisis posterior (e.g. ver http://kbroman.org/dataorg/ o http://www.datacarpentry.org/spreadsheet-ecology-lesson/).
 
-Además, debemos incorporar tests para cada función para comprobar que las funciones realmente están haciendo lo que realmente queremos. Los test son scripts de R que comprueban cada función (son archivos .R, ver https://cran.r-project.org/web/packages/testthat/testthat.pdf). Estos tests son fundamentales a la hora de mantener un paquete porque cuando los paquetes crecen y se hacen complejos las interdependencias entre funciones son menos evidentes, así que podríamos llegar a modificar una función sin darnos cuenta de que al hacerlo estamos rompiendo otra que depende de ella (y las razones pueden no ser evidentes a primera vista, e.g., cuestiones de formato de los datos). Para ver un ejemplo real de tests abrir: https://github.com/ropensci/paleobioDB/tree/master/tests/testthat.
 
-#### DESCRIPTION
+### Preservación
 
-Es un archivo de texto en el cual se especifica el nombre del paquete, su versión, los autores, emails, las dependencias que tiene, etc. (ver https://github.com/ropensci/paleobioDB/blob/master/DESCRIPTION) (Nota: editar DESCRIPTION con RStudio, nunca con el block de notas).
+Finalmente, debemos buscar la forma de asegurar que nuestros datos seguirán estando disponibles a largo plazo. Un estudio reciente [@Vines2014] estimó que la disponibilidad de los datos se reduce con el tiempo a una alarmante tasa anual del 17%. En muchos casos, la dificultad de acceso a los datos se debe a su almacenamiento en formatos propietarios o dispositivos digitales obsoletos; otras veces simplemente se extravían. La mejor manera de asegurar la persistencia de los datos a largo plazo es alojarlos en formato de texto plano (e.g. txt, csv) en un repositorio oficial de los muchos que hay disponibles ([@White2013]; ver http://www.re3data.org/). Muchos de estos repositorios están orientados a la difusión pública de los datos, pero otros permiten alojamiento privado (e.g. Figshare, KNB, etc). Estos repositorios otorgan un identificador (DOI) a los datos, facilitando su reutilización y citación. Existen múltiples programas (incluyendo paquetes de R) que permiten subir y actualizar nuestros datos fácilmente en estos repositorios online (e.g. ver http://ropensci.org/packages/#data_publication). El alojamiento en la nube representa por tanto la mejor opción para la conservación de los datos [@Hart2015].
 
-#### NAMESPACE
 
-Es un archivo de texto que se genera automáticamente al ejecutar el comando roxygenize en el cual se especifican los nombres de las funciones que estarán disponibles al cargar nuestro paquete, que serán nuestras funciones propias y las funciones que importemos o de las que dependamos. Si nuestro paquete tiene una función con el mismo nombre que otro que se haya cargado antes R genera un mensaje informando del problema (colisión de nombres). Para evitar colisiones de nombres puedes aplicar un prefijo a las funciones de tu paquete de forma que sus nombres no coincidan con los de ninguna otra función que haya sido programada en R.
 
-#### Crear el paquete
 
-Finalmente, después de haber ejecutado el comando roxygenize para generar los manuales y el NAMESPACE, podemos crear nuestro paquete ejecutando las siguientes líneas desde el símbolo del sistema o del bash:
 
-```coffee
-cd..
-R CMD build --resave-data myfirstpackage
-```
 
-Si nuestro paquete pasa el check –as-cran sin ningún warning podríamos incluso compartirlo en el CRAN de R. 
+## Análisis de datos y documentos dinámicos
 
-```coffee
-R CMD check --as-cran myfirstpackage_0.1.tar.gz
-```
+Para que un estudio sea reproducible, todo el análisis debe realizarse mediante *scripts* de código, desde la manipulación de los datos hasta la generación de tablas y figuras. Eso significa que debemos evitar hacer ningún cambio directamente sobre los datos (e.g. en una hoja de cálculo como Microsoft Excel): los datos originales son intocables, y cualquier modificación posterior debe realizarse mediante código de manera que quede un registro de todos los cambios realizados (idealmente también explicando los motivos). 
 
+La utilización de código trae consigo una serie de ventajas frente al análisis manual (*point-and-click*). En primer lugar, el análisis manual es totalmente irreproducible, a diferencia del código que es interpretable tanto para humanos como computadoras. El código contiene un registro perfecto de todos los pasos seguidos en el análisis, muy útil para compartir con colaboradores o reutilizar algún tiempo después. Además, la utilización de código permite automatizar tareas, ahorrando muchísimo tiempo al investigador. 
 
-## Dependencias externas [PACO]
+En ecología y otras muchas disciplinas científicas, el lenguaje de programación dominante desde hace años es R (www.r-project.org). R es un lenguaje gratuito, de código abierto, inicialmente dirigido al análisis de datos y la visualización, pero cuyos usos no paran de crecer gracias a una comunidad muy activa de usuarios-desarrolladores que contribuyen sus propios 'paquetes' con funciones (ver https://cran.r-project.org/web/packages/available_packages_by_name.html). Python (https://www.python.org/) es otro lenguaje bastante utilizado, junto con C, C++, MATLAB... [@Bass2008].
 
-Todo análisis reposa sobre plataformas o paquetes de software que suelen evolucionar con el tiempo. Así, cambios en paquetes de R, o el mismo R base, pueden hacer que nuestro análisis deje de ser reproducible en poco tiempo (semanas, meses), incluso habiendo seguido los protocolos de reproducibilidad esbozados más arriba. De manera que, para asegurar que nuestro proyecto siga siendo reproducible en el futuro, necesitamos (i) registrar las dependencias externas de nuestro análisis (e.g. paquetes de R), y (ii) asegurar de alguna forma el acceso a versiones pasadas de dicho software. Para el primer punto, es tan sencillo como ejecutar `sessionInfo()` al finalizar el análisis en `R`. Este comando devuelve una lista de todos los paquetes utilizados y su versión (Figura?). El segundo punto es algo más complejo, aunque existen distintas opciones que difieren significativamente en cuanto a versatilidad y facilidad de manejo. Entre los más sencillos se encuentran los paquetes `rctrack` (ref), `checkpoint` (ref) y `packrat` (ref). [TABLA COMPARATIVA] Mientras `rctrack` y `packrat` optan por almacenar una copia local de todos los paquetes utilizados en un proyecto, `checkpoint` simplemente rastrea los paquetes necesarios (esto es, llamadas a `library` o `require`) y descarga la versión correspondiente a la fecha que nosotros especifiquemos (link to tutorial). `checkpoint` sólo es compatible con paquetes incluidos en el repositorio CRAN, mientras que `packrat` es capaz de sincronizar también paquetes instalados desde GitHub u otro repositorio. Finalmente, `rctrack` es capaz de generar, de manera automática, un único fichero `RData` o `zip` conteniendo todos los datos y funciones necesarios para correr un análisis. Los tres paquetes son, por tanto, muy fáciles de utilizar y permiten tanto compartir código como asegurar su reproducibilidad de manera automática. Finalmente, desde hace muy poco tiempo existen también otras alternativas más versátiles y avanzadas, como `drat` (ref) o `rocker` (ref), más similares a una máquina virtual.
+La aparición en el último lustro de plataformas para generar documentos dinámicos a partir de un conjunto de datos y código ([knitr](http://yihui.name/knitr/) y [rmarkdown](http://rmarkdown.rstudio.com) en R, [IPython](http://ipython.org/) para Python, [Jupyter](https://jupyter.org/) para múltiples lenguajes) ha supuesto una revolución en el campo de la ciencia reproducible. Estos programas integran texto y código de manera que es posible regenerar todas las tablas, figuras y resultados presentes en un artículo, libro o informe con un solo click (**Fig. 4**). Ello nos libra por tanto de tener que volver a copiar manualmente todos los valores de una tabla o rehacer figuras con cada iteración del análisis. Por tanto, utilizar documentos dinámicos no solo ahorra muchísimo tiempo sino que también reduce enormemente la probabilidad de cometer errores: todos los resultados son perfectamente trazables a partir de los datos originales. En el caso concreto de R, la integración de rmarkdown en Rstudio (www.rstudio.com) hace tremendamente sencillo escribir artículos, tesis, páginas web e incluso presentaciones totalmente reproducibles (www.rmarkdown.rstudio.com). A modo de ejemplo, este artículo está escrito íntegramente en Rmarkdown (véase el código fuente aquí: https://github.com/ecoinfAEET/Reproducibilidad). Aquí (https://github.com/Pakillo/rmdTemplates) puede descargarse una plantilla para escribir artículos en Rmarkdown para la revista Ecosistemas.
 
-## hay que decir algo de data preservation in the long term??
-quizas si, el paper de Nature con la figura de datos perdidos por año transcurrido es buenisima, la puedo recuperar. Una nota sobre hacerlos reproducibles para ti es bueno, hacerlo para todos es mejor estaria bien, aunque no deberiamos confundir reproducibilidad con ciencia abierta.
 
-Para acabar, queriamos poner la siguiente cita extraida de ...
 
-"You can't reproduce… if you don't understand where a number came from.
-You can't reproduce… what you don't remember. And trust me: you won't.
-You can't reproduce… what you've lost. What if you need access to a file as it existed 1, 10, or 100, or 1000 days ago?"
 
-Las herramientas expuestas anteriormente te ayudaran, sobretodo a ti mismo, pero tambien a los otros, a entender tus analysis, a recordar los que has hecho, a no perder datos, ni analisis y hacer mejor ciencia. 
+## Control de versiones
 
+El control de versiones es otro de los nudos conflictivos a lo largo del desarrollo de un proyecto. Muchos científicos se verán reflejados en la situación de la **Figura 5**. El sistema más común -y problemático- de control de versiones consiste en guardar copias de los archivos (e.g. un documento Word) con distintos nombres, en un intento (muy ineficiente) de reflejar y tener un archivo de todos los cambios aplicados al documento. Este sistema lleva a la acumulación desmesurada de archivos muy similares cuyas modificaciones no son fácilmente comparables, dificultando reconstruir la historia del proyecto, volver atrás en caso de detectar errores, o colaborar con varios coautores que hacen modificaciones sobre el mismo documento.
 
+En el campo de la programación existen sistemas de control de versiones mucho más eficientes (e.g. `git`, `subversion`) que recientemente se han incorporado como herramientas básicas de la ciencia reproducible [@Ram2013a]. `Git` es el sistema más utilizado hoy día, en conjunción con plataformas online como `GitHub` (https://github.com), `BitBucket`, o `GitLab`. Los sistemas de control de versiones se encargan de monitorizar automáticamente los cambios realizados en cualquier fichero, registrando *quién* hizo *qué* cambio, *cuándo* y *por qué* [@Blischak2016]. Git facilita enormemente la tarea de archivar, reconstruir y navegar por la historia de un proyecto [estaría bien mostrar una figura mostrando un historial resumido de cambios de un proyecto: Fig. 6?]. La integración de git en plataformas como GitHub facilita además enormemente el desarrollo conjunto de análisis, código y texto entre todos los colaboradores de un proyecto. A modo de ejemplo, este artículo se escribió utilizando `git` para el control de versiones, y GitHub para colaborar entre los autores. El desarrollo completo del artículo (incluyendo quién hizo qué cambios, cuándo y por qué) está disponible públicamente en GitHub: https://github.com/ecoinfAEET/Reproducibilidad/commits/master.
 
 
+
+
+
+## Organización de ficheros
+
+Mantener un sistema consistente de organizar todos los archivos relacionados con un proyecto es otro punto importante para garantizar su reproducibilidad (y hacer la vida del investigador más fácil). Cuando no se tiene ningún criterio, los archivos se acumulan desordenadamente y resulta muy difícil manejar los distintos componentes del proyecto. Esto no sólo dificulta la comprensión y reutilización en el futuro, sino que también favorece la aparición de errores incontrolados.  
+
+Hay muchas maneras de organizar un proyecto, y cada investigador elige la más conveniente en su caso. Pero sí existen algunos principios básicos a seguir (@Noble2009; véase también https://github.com/Reproducible-Science-Curriculum/rr-init, https://github.com/ropensci/rrrpkg y http://nicercode.github.io/blog/2013-04-05-projects/): (i) todos los ficheros relacionados con el proyecto están dentro del mismo directorio (e.g. un proyecto de Rstudio); (ii) existen subdirectorios independientes que contienen los datos, código, resultados y figuras, y manuscrito; (iii) los datos originales están en un directorio aparte y permanecen inalterados; (iv) los datos derivados van en otra carpeta y se generan mediante scripts; (v) las definiciones de funciones y el script que ejecuta el análisis son ficheros independientes; (vi) en el directorio raíz hay un *script maestro* que ejecuta todos los análisis requeridos para el proyecto; y (vii) en el directorio raíz hay un fichero README que describe el proyecto y sus componentes. 
+
+La **Figura 7a** representa el esqueleto básico de estructura de archivos siguiendo estos principios generales. Convenientemente, dicha estructura es muy similar a la de un paquete de R (**Fig. 7b**). Todos los paquetes de R tienen una estructura estándar con una carpeta 'R' donde residen las funciones, una carpeta 'man' que contiene los ficheros de ayuda de esas funciones, un fichero de texto 'NAMESPACE' (generado automáticamente) que especifica las funciones contenidas en el paquete y si dependen de funciones contenidas en otros paquetes, y un fichero 'DESCRIPTION' con los metadatos del paquete: nombre, objetivos, autores, y sus dependencias de otros paquetes. Además pueden añadirse carpetas incluyendo archivos de datos, tests para las funciones, etc. [@Wickham2015b], por lo que la estructura, siendo estándar, mantiene su flexibilidad.
+
+Crear un paquete de R es mucho más fácil de lo que puede parecer (http://r-pkgs.had.co.nz/), y organizar un proyecto de investigación utilizando esa estructura estándar tiene muchas ventajas (cf. https://github.com/ropensci/rrrpkg), entre ellas: (i) el paquete provee una estructura de directorios para mantener los archivos organizados según los principios esbozados arriba; (ii) las funciones creadas para el análisis quedan documentadas, facilitando su reutilización posterior; (iii) las funciones pueden llevar tests asociados para comprobar que funcionan correctamente, incrementando la robustez del análisis; (iv) se describen explícitamente las dependencias de nuestro análisis en otros paquetes o programas externos, facilitando la reproducibilidad del proyecto. En la sección siguiente se discute precisamente cómo manejar las dependencias externas de nuestro proyecto para asegurar su reproducibilidad. 
+
+
+
+
+
+## Dependencias externas
+
+Todo análisis reposa sobre plataformas, paquetes o programas que cambian con el tiempo (**Fig. 8**). Así, incluso siguiendo todos los protocolos de reproducibilidad esbozados arriba, nuestro análisis puede dejar de ser reproducible en poco tiempo (semanas, meses) al occurrir cambios en, por ejemplo, algún paquete de R del que depende el proyecto. Problemas similares surgen al intentar reproducir un análisis en otro ordenador: si las dependencias de software no están configuradas correctamente, el análisis no funcionará. 
+
+Para evitar estos problemas tendremos que (i) documentar las dependencias externas de nuestro análisis (e.g. qué paquetes de R se utilizan, especificando la versión), y (ii) asegurarnos de que dicho software estará disponible a la hora de intentar reproducir el análisis. Hay muchas maneras posibles de registrar las dependencias de nuestro proyecto. Ejecutar la función `sessionInfo` en R (o su equivalente `session_info` del paquete `devtools`) al finalizar el análisis es una de las más sencillas. Este comando devuelve un listado estructurado de todos los paquetes utilizados especificando su versión. Esta información puede ser procesada directamente por paquetes como `switchr` [@Becker2015] para instalar todas las dependencias requeridas en cualquier otro ordenador. Otras opciones incluyen el uso de los paquetes `rctrack` [@Liu2014b], `checkpoint` [@Analytics2015] y `packrat` [@Ushey2015]. Mientras `rctrack` y `packrat` almacenan una copia local de todos los paquetes utilizados en un proyecto, `checkpoint` descarga los paquetes desde un servidor de internet cuando se ejecuta. Estos paquetes son muy fáciles de utilizar y garantizan la reproducibilidad de nuestro proyecto en el futuro aunque cambien los paquetes o dependencias externas. Otras alternativas más avanzadas y versátiles incluyen `docker` [@Boettiger2015] y `drat` [@Eddelbuettel2015]. En el **Apéndice 1** hemos incluido enlaces para iniciarse en el uso de todas ellas.
+
+
+
+
+
+# Conclusiones
+
+La reproducibilidad de los resultados científicos es una cualidad inherente a la ciencia de calidad. Hacer ciencia de manera reproducible no sólo es un requisito creciente en muchas revistas y fuentes de financiación sino que además aporta muchas ventajas para el investigador. La ciencia reproducible ahorra mucho tiempo y esfuerzo, reduce el riesgo de cometer errores, y aumenta el impacto y utilidad de los trabajos en la comunidad científica y en el conjunto de la sociedad. Desarrollar estudios plenamente reproducibles requiere un esfuerzo inicial de aprendizaje, pero la transición puede hacerse gradualmente, y los frutos se recogen desde el primer día. Esperamos que este artículo anime a muchos investigadores a adoptar estas prácticas, y las pautas y recursos aquí recogidos les faciliten dicha transición. 
+
+
+
+
+
+
+
+# Agradecimientos
+
+
+FRS está financiado por una ayuda de formación postdoctoral del Ministerio de Economía y Competitividad. 
+GitHub, R, Rstudio, knitr, tool builders.
+etc
 
 
 # Referencias
 
-Or cite by doi, e.g. `r citet("10.1098/rspb.2013.1372")`, thanks to `knitcitations` package `r citep(citation("knitcitations"))`. 
-
-
-# Tablas
-
-Se aportarán los encabezamientos tanto en castellano como en inglés, en letra Arial 10 y en página independiente.
+ 
 
 
 
-# Pies de figura
 
-Página independiente. En castellano e inglés. Letra Arial 10.
+###### TABLA 1
 
+**Tabla 1**. Ventajas personales (para el investigador) y generales (para el progreso científico) de la ciencia reproducible
 
+**Table 1**. General and personal benefits of reproducible science.
 
-# Figuras 
-
-En páginas independientes
-
-- [Peng Science 2011](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3383002/bin/nihms382015f1.jpg)
-- [Broken workflow](http://pakillo.github.io/Rmarkdown_talk_SevillaR_Nov2014/#/5)
-- [Git & version control](http://pakillo.github.io/Rmarkdown_talk_SevillaR_Nov2014/#/19)
-
-
-
-# Mover esta lista de referencias a la sección de 'Referencias', más arriba en documento final (Word).
-
-```{r generate_references, cache=FALSE, include=FALSE, results='hide'}
-write.bibtex(file="references.bib")
+```{r tabla1}
+tabla1 <- read.csv("tablas/tabla_ventajas_reproducibilidad.csv", header = FALSE)
+kable(tabla1)
 ```
+
+
+
+###### TABLA 2
+
+**Tabla 2**. Reproducibility checklist.
+
+**Table 2**. Reproducibility checklist.
+
+```{r tabla2}
+tabla2 <- read.csv("tablas/checklist.csv", header = FALSE)
+kable(tabla2)
+```
+
+
+
+
+
+###### PIES DE FIGURA
+
+**Figura 1**. Habria que pedirle permiso al autor... No se si nos lo dara. http://www.sciencecartoonsplus.com/index.php
+
+**Figura 2**. Habría que redibujar esta figura [voluntarios?], y pedir permiso a Science. 
+
+**Figura 3**. Workflow: revisar. [Antonio?]
+
+**Figura 4**. Ejemplo de documento escrito en Rmarkdown: código fuente en Rmarkdown (izquierda) y resultado (derecha). Si se descubre un error en los datos, las tablas y figuras se actualizan automáticamente. El formato de salida se puede elegir entre html, word, pdf y muchos otros (pandoc).
+
+**Figure 5**. Version control al estilo PhDcomics. [pedir permiso]
+
+**Figure 6**. Ejemplo de historia de git/github. [usar captura de pantalla de github, o pintar commit history?]
+
+**Figure 7**. (a) Estructura general segun lo descrito en el texto (ver https://github.com/Reproducible-Science-Curriculum/rr-init y https://github.com/ropensci/rrrpkg. (b) Estructura de archivos en un paquete de R. [Sara?]
+
+**Figura 8**. Red de dependencias externas de un proyecto (incluir?)
+
+
+###### FIGURE LEGENDS
+
+**Figure 1**. 
+
+**Figure 2**.
+
+
+
+###### FIGURA 1
+
+![](figuras/miracle.gif)
+
+
+
+###### FIGURA 2
+
+![](figuras/peng.jpg)
+
+
+###### FIGURA 3
+
+![](figuras/esquemav2.pdf)
+
+
+###### FIGURA 4
+
+![](figuras/Rmd.PNG)
+![](figuras/pdf.PNG)
+
+###### FIGURA 5
+
+![](figuras/phdcomic.gif)
+
+
+###### FIGURA 6
+
+![](figuras/history.PNG)
+
+
+###### FIGURA 7
+
+![](figuras/directorios.PNG)
+
+
+###### FIGURA 8
+
+![](figuras/sotobosque_dependencies.png)
+
+
+###### Mover lista de referencias a la sección de 'Referencias', más arriba en documento final.
+
+
 
 
 
