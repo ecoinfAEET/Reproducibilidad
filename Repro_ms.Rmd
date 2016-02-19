@@ -24,33 +24,6 @@ csl: ecosistemas.csl
 > Autor para correspondencia: F. Rodríguez-Sánchez [frodriguez.work@gmail.com]
 
 
-```{r knitr_setup, include=FALSE, cache=FALSE}
- 
-library(knitr)
-
-### Chunk options ###
-
-## Text results
-opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
-
-## Code decoration
-opts_chunk$set(tidy = FALSE, comment = NA, highlight = FALSE)
-
-## Cache
-#opts_chunk$set(cache = 2, cache.path = "output/cache/")
-
-## Plots
-#opts_chunk$set(fig.path = "output/figures/")
-#opts_chunk$set(dpi = 300, fig.align = "default")   # may want 'center' sometimes
-
-# Figure format
-#opts_chunk$set(dev='png')  # e.g. choose among 'pdf', 'png', 'svg'...
-# may include specific dev.args as a list... see knitr help
-
-
-```
-
-
 
 
 # Resumen
