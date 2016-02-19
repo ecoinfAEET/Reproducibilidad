@@ -13,6 +13,8 @@ output: pdf_document
 
 - [Best practices for scientific computing](http://dx.doi.org/10.1371/journal.pbio.1001745)
 
+- [Good enough practices for scientific computing](http://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
+
 - [Initial steps toward reproducible research](http://kbroman.org/steps2rr/)
 
 - [Tools for reproducible research](http://kbroman.org/Tools4RR)
