@@ -1,23 +1,23 @@
-Los datos brutos originales están disponibles
+Los datos brutos originales est?n disponibles
 Todo el filtrado y manejo de datos se hace mediante scripts
-Los datos han sido revisados y validados (preferiblemente de manera automática)
+Los datos han sido revisados y validados (preferiblemente de manera autom?tica)
 "Existe un conjunto de metadatos explicando la estructura, formato y contenido de los datos"
-Los datos se han subido a un repositorio
-"Los datos están almacenados en formato de texto plano (txt, csv)"
-Todo el análisis se hace mediante código
-El código está bien documentado
-El código genera las tablas y figuras finales
-Todos los resultados del trabajo se actualizan dinámicamente (nunca manualmente)
-"Todos los archivos importantes (datos, código) están versionados (git) "
+Los datos usados se han subido a un repositorio
+"Los datos est?n almacenados en formato de texto plano (txt, csv)"
+Todo el an?lisis se hace mediante c?digo
+El c?digo est? bien documentado
+El c?digo genera las tablas y figuras finales
+Todos los resultados del trabajo se actualizan din?micamente (nunca manualmente)
+"Todos los archivos importantes (datos, c?digo) est?n versionados (git) "
 Existe copia de seguridad de todos los archivos importantes en cuasi tiempo real
-Todos los archivos relacionados con el proyecto están dentro del mismo directorio
-"Existen subdirectorios independientes para los datos, código, figuras, etc"
-Los datos brutos están separados de los datos derivados
-El código utiliza funciones que se definen en un fichero independiente
-Se han escrito tests que comprueban que las funciones actúan correctamente
-Existe un script maestro que ejecuta todos los pasos del análisis ordenadamente
-Existe un documento README que explica los objetivos y organización del proyecto
-Existe un registro detallado de todas las dependencias de software externo (incluyendo la versión)
+Todos los archivos relacionados con el proyecto est?n dentro del mismo directorio
+"Existen subdirectorios independientes para los datos, c?digo, figuras, etc"
+Los datos brutos est?n separados de los datos derivados
+El c?digo utiliza funciones que se definen en un fichero independiente
+Se han escrito tests que comprueban que las funciones act?an correctamente
+Existe un script maestro que ejecuta todos los pasos del an?lisis ordenadamente
+Existe un documento README que explica los objetivos y organizaci?n del proyecto
+Existe un registro detallado de todas las dependencias de software externo (incluyendo la versi?n)
 Es posible instalar todas esas dependencias en el futuro o en otro ordenador
-Tanto el manuscrito como los datos y código son públicos
-Se especifica el tipo de licencia que tienen los datos y el código
+Tanto el manuscrito como los datos y c?digo son p?blicos
+Se especifica el tipo de licencia que tienen los datos y el c?digo
