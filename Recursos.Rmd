@@ -21,6 +21,8 @@ output: pdf_document
 
 - [The tao of open science for ecology](http://dx.doi.org/10.1890/ES14-00402.1)
 
+- [Reproducible research is still a challenge](https://ropensci.org/blog/2014/06/09/reproducibility/)
+
 - [rOpenSci reproducibility guide](http://ropensci.github.io/reproducibility-guide/)
 
 - [Reproducible research course](https://www.coursera.org/learn/reproducible-research)
