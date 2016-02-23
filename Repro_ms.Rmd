@@ -201,9 +201,10 @@ etc
 
 **Table 1**. General and personal benefits of reproducible science.
 
-```{r tabla1}
+```{r tabla1, echo = FALSE, results = "asis"}
 tabla1 <- read.csv("tablas/tabla_ventajas_reproducibilidad.csv", header = FALSE)
-knitr::kable(tabla1)
+colnames(tabla1) <- NULL
+pander::pandoc.table(tabla1, split.table = Inf, split.cells = 100, justify = "left")
 ```
 
 
@@ -214,9 +215,10 @@ knitr::kable(tabla1)
 
 **Table 2**. Reproducibility checklist.
 
-```{r tabla2}
+```{r tabla2, echo = FALSE, results = "asis"}
 tabla2 <- read.csv("tablas/checklist.csv", header = FALSE)
-knitr::kable(tabla2)
+colnames(tabla2) <- NULL
+pander::pandoc.table(tabla2, split.table = Inf, split.cells = 100, justify = "left")
 ```
 
 
@@ -225,7 +227,7 @@ knitr::kable(tabla2)
 
 ###### PIES DE FIGURA
 
-**Figura 1**. Reproducibility gradient (redrawn from Peng 2011). Pedir permiso a Science.
+**Figura 1**. Reproducibility gradient.
 
 **Figura 2**. Workflow: revisar. [Antonio?]
 
@@ -266,8 +268,8 @@ Workflow completo (Antonio)
 
 ###### FIGURA 4
 
-![](figuras/nogit)
-![](figuras/git)
+![](figuras/nogit.jpg)
+![](figuras/git.jpg)
 
 
 ###### FIGURA 5
