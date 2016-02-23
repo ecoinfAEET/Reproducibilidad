@@ -38,12 +38,12 @@ csl: ecosistemas.csl
 
 # Palabras clave
 
-> reproducibilidad; ciencia abierta; análisis de datos; ecoinformática; ecología; programación (4-6 keywords)
+> reproducibilidad; ciencia abierta; análisis de datos; ecoinformática; ecología; programación
 
 
 # Keywords
 
-> reproducibility; open science; data analysis; ecoinformatics; ecology; programming (4-6 keywords)
+> reproducibility; open science; data analysis; ecoinformatics; ecology; programming
 
 
 # Introducción 
