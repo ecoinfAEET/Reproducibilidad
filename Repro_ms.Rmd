@@ -28,12 +28,12 @@ csl: ecosistemas.csl
 
 # Resumen
 
-> El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. 
+> **Ciencia reproducible: qué, por qué, cómo**. La inmensa mayoría de los estudios científicos no son reproducibles: resulta muy difícil (si no imposible) entender el proceso de análisis y volver a obtener los mismos resultados, bien porque los datos originales no están disponibles o no se ha publicado un código informático que ejecute el análisis de datos. La trazabilidad y reproducibilidad de los resultados es sin embargo una condición inherente a la ciencia de calidad, y un requisito cada vez más frecuente por parte de revistas y organismos financiadores de la investigación. La ciencia reproducible no sólo acelera el progreso científico (al reducir drásticamente los errores y promover la reutilización de código), sino que también reporta múltiples beneficios para el investigador, incluyendo ahorro de tiempo y esfuerzo, incremento de la calidad e impacto de las publicaciones. En este artículo explicamos en qué consiste la reproducibilidad, por qué es necesaria en ciencia, y cómo podemos hacer ciencia reproducible. Presentamos una serie de recomendaciones y herramientas para el manejo y análisis de datos, control de versiones de archivos, organización de ficheros y manejo de programas informáticos que nos permiten desarrollar flujos de trabajo reproducibles.
 
 
 # Abstract
 
-> El resumen debe tener una extensión máxima de 250 palabras, incluyendo, en la primera línea, el título del artículo. 
+> **Reproducible science: what, why, how**. Most scientific papers are not reproducible: it is really hard, if not impossible, to understand how results are derived from data, as well as being able to regenerate those same results in the future, even by the same researchers. This lack of reproducibility is due to original data and/or code used for analysis not being released together with the article. However, traceability and reproducibility of results are indispensable elements of high-quality science, and an increasing requirement of many journals and funding sources. Reproducibility not only accelerates scientific progress (e.g. by reducing errors and facilitating code reuse) but, most importantly, also brings many benefits to the individual researcher. These include time saving, improved collaborations, and higher quality and impact of final publications. In this article we introduce reproducible science, why it is important, and how we can improve our reproducibility. We introduce principles and tools for data management, analysis, version control, and software management that help us achieve reproducible workflows.
 
 
 # Palabras clave
@@ -203,7 +203,7 @@ etc
 
 ```{r tabla1}
 tabla1 <- read.csv("tablas/tabla_ventajas_reproducibilidad.csv", header = FALSE)
-kable(tabla1)
+knitr::kable(tabla1)
 ```
 
 
@@ -216,7 +216,7 @@ kable(tabla1)
 
 ```{r tabla2}
 tabla2 <- read.csv("tablas/checklist.csv", header = FALSE)
-kable(tabla2)
+knitr::kable(tabla2)
 ```
 
 
