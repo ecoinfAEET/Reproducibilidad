@@ -62,7 +62,7 @@ Claerbout & Karrenbach 1992
 
 La ciencia se caracteriza por seguir unas pautas metodológicas que garantizan su validez epistemológica [@Pigliucci2013g]. La confrontación rigurosa de hipótesis con evidencias empíricas (observacionales o experimentales) y el escrutinio público de los resultados contribuyen a garantizar que las conclusiones sean ciertas. Es por ello que los artículos científicos tienen una sección de métodos explicando los pasos seguidos en la recolección y análisis de datos. Esta información resulta crucial para examinar la veracidad y robustez de las conclusiones del artículo, así como para permitir futuras repeticiones del estudio por otros autores. Sin embargo, en la mayoría de ocasiones la escueta descripción verbal que aparece en la sección de métodos resulta insuficiente para conocer todos los detalles del análisis [@Ince2012] (**Fig. 1)**. Este problema resulta cada vez más acuciante con el aumento de la complejidad de los análisis estadísticos [@Michener2012].
 
-Un estudio científico es reproducible si el texto del artículo viene acompañado de código (texto interpretable por un ordenador) que permite recrear exactamente todos los resultados y figuras incluidos en el artículo a partir de los datos originales [@Peng2011; @Marwick2016]. El concepto es por tanto diferente al de repetibilidad, que se refiere a la posibilidad de replicar el mismo estudio (con nuevos datos) a partir de la información proporcionada en el artículo. La reproducibilidad se relaciona principalmente con la transparencia, trazabilidad, y completitud del protocolo seguido para llegar a unos resultados concretos a partir de un conjunto de datos determinado. La reproducibilidad no es una cualidad binaria sino un gradiente que va desde trabajos totalmente irreproducibles (que sólo contienen el texto, tablas y figuras finales) a estudios perfectamente reproducibles donde la integración de texto, código y datos permite regenerar fácilmente el resultado final a partir de los datos originales (e.g. @FitzJohn2014; **Fig. 2**).
+Un estudio científico es reproducible si el texto del artículo viene acompañado de código (texto interpretable por un ordenador) que permite recrear exactamente todos los resultados y figuras incluidos en el artículo a partir de los datos originales [@Peng2011; @Marwick2016]. El concepto es por tanto diferente al de repetibilidad, que se refiere a la posibilidad de replicar el mismo estudio (con nuevos datos) a partir de la información proporcionada en el artículo. La reproducibilidad se relaciona principalmente con la transparencia, trazabilidad, y completitud del protocolo seguido para llegar a unos resultados concretos a partir de un conjunto de datos determinado. La reproducibilidad no es una cualidad binaria sino un gradiente que va desde trabajos totalmente irreproducibles (que sólo contienen el texto, tablas y figuras finales) a estudios perfectamente reproducibles donde la integración de texto, código y datos permite regenerar fácilmente el resultado final a partir de los datos originales (e.g. @FitzJohn2014; **Fig. 1**).
 
 
 
@@ -86,7 +86,7 @@ Para empezar, tener flujos de trabajo reproducibles evita muchos de los problema
 
 Adoptar un flujo de trabajo reproducible requiere un esfuerzo inicial importante. Es necesario familiarizarse con diversas herramientas (bases de datos, programación, sistemas de control de versiones) lo cual lleva su tiempo. Recibir una formación adecuada y temprana (idealmente previa a la realización del proyecto de master o doctorado) facilita mucho las cosas. Dado que el interés por la ciencia reproducible es bastante reciente, en nuestro país la formación es aún escasa o inexistente, aún más en el campo de la ecología. Pero existen cursos, libros y material de aprendizaje fácilmente disponibles (ver **Apéndice 1**). 
 
-La reproducibilidad no es una cualidad binaria sino un gradiente (**Fig. 1**) y conviene implementarla paso a paso en nuestra investigación para facilitar la transición. Un ejemplo extremo de irreproducibilidad sería aquel donde los datos son manipulados en una hoja de cálculo (e.g. Microsoft Excel), posteriormente analizados manualmente en programas estadísticos (como Statistica o SPSS), el manuscrito redactado en un procesador de texto (e.g. Microsoft Word, Google Docs), las figuras realizadas en un programa gráfico (e.g. Sigmaplot, Adobe Illustrator, Photoshop), y los valores de las tablas copiados a mano. Afortunadamente, cada vez es más frecuente que los análisis se hagan mediante código (mayoritariamente R o Python), lo cual representa un avance importante en cuanto a reproducibilidad. Sin embargo, dicho flujo de trabajo incluye todavía múltiples pasos manuales que rompen su dinamismo, no dejan registro de las operaciones realizadas, y abren la puerta a la introducción de errores (por ejemplo, al copiar manualmente múltiples valores a una tabla). En el otro extremo de este gradiente de reproducibilidad estarían los análisis puramente integrados donde el trabajo final puede ser reconstituido a partir de los datos originales con un solo comando o click del ratón (**Fig. 2**).
+La reproducibilidad no es una cualidad binaria sino un gradiente (**Fig. 1**) y conviene implementarla paso a paso en nuestra investigación para facilitar la transición. Un ejemplo extremo de irreproducibilidad sería aquel donde los datos son manipulados en una hoja de cálculo (e.g. Microsoft Excel), posteriormente analizados manualmente en programas estadísticos (como Statistica o SPSS), el manuscrito redactado en un procesador de texto (e.g. Microsoft Word, Google Docs), las figuras realizadas en un programa gráfico (e.g. Sigmaplot, Adobe Illustrator, Photoshop), y los valores de las tablas copiados a mano. Afortunadamente, cada vez es más frecuente que los análisis se hagan mediante código (mayoritariamente R o Python), lo cual representa un avance importante en cuanto a reproducibilidad. Sin embargo, dicho flujo de trabajo incluye todavía múltiples pasos manuales que rompen su dinamismo, no dejan registro de las operaciones realizadas, y abren la puerta a la introducción de errores (por ejemplo, al copiar manualmente múltiples valores a una tabla). En el otro extremo de este gradiente de reproducibilidad estarían los análisis puramente integrados donde el trabajo final puede ser reconstituido a partir de los datos originales con un solo comando o click del ratón (**Fig. 1**).
 
 A continuación presentamos los elementos más importantes de un flujo de trabajo reproducible e introducimos las principales herramientas disponibles para: (i) el manejo de datos; (ii) los análisis de datos mediante código; (iii) el control de versiones; (iv) la organización de los archivos; y (v) el manejo de las dependencias de software externo. En el **Apéndice 1** hemos incluido un listado de recursos que profundizan más en cualquiera de estos aspectos. 
 
@@ -136,7 +136,7 @@ La utilización de código trae consigo una serie de ventajas frente al análisi
 
 En ecología y otras muchas disciplinas científicas el lenguaje de programación dominante desde hace años es R (www.r-project.org). R es un lenguaje gratuito, de código abierto, inicialmente dirigido al análisis de datos y la visualización, pero cuyos usos no paran de crecer gracias a una comunidad muy activa de usuarios-desarrolladores que contribuyen sus propios 'paquetes' con funciones (ver https://cran.r-project.org/web/packages/available_packages_by_name.html). Además de R, existen otros lenguajes de programación bastante extendidos como Python, C, C++, MATLAB, etc. [@Bass2008].
 
-La aparición en el último lustro de herramientas para generar documentos dinámicos a partir de un conjunto de datos y código ([knitr](http://yihui.name/knitr/) y [rmarkdown](http://rmarkdown.rstudio.com) en R, [IPython](http://ipython.org/) para Python, [Jupyter](https://jupyter.org/) para múltiples lenguajes) ha supuesto una revolución en el campo de la ciencia reproducible. Estos programas integran texto y código de manera que es posible regenerar todas las tablas, figuras y resultados presentes en un artículo, libro o informe con un solo click (**Fig. 4**). Ello nos libra por tanto de tener que volver a copiar manualmente todos los valores de una tabla o rehacer figuras con cada iteración del análisis. Por tanto, utilizar documentos dinámicos no solo ahorra tiempo sino que también reduce la probabilidad de cometer errores: todos los resultados son perfectamente trazables a partir de los datos originales. 
+La aparición en el último lustro de herramientas para generar documentos dinámicos a partir de un conjunto de datos y código ([knitr](http://yihui.name/knitr/) y [rmarkdown](http://rmarkdown.rstudio.com) en R, [IPython](http://ipython.org/) para Python, [Jupyter](https://jupyter.org/) para múltiples lenguajes) ha supuesto una revolución en el campo de la ciencia reproducible. Estos programas integran texto y código de manera que es posible regenerar todas las tablas, figuras y resultados presentes en un artículo, libro o informe con un solo click (**Fig. 3**). Ello nos libra por tanto de tener que volver a copiar manualmente todos los valores de una tabla o rehacer figuras con cada iteración del análisis. Por tanto, utilizar documentos dinámicos no solo ahorra tiempo sino que también reduce la probabilidad de cometer errores: todos los resultados son perfectamente trazables a partir de los datos originales. 
 
 En el caso concreto de R, la integración de rmarkdown en Rstudio (www.rstudio.com) facilita la tarea de escribir artículos, tesis, páginas web e incluso presentaciones totalmente reproducibles (www.rmarkdown.rstudio.com). A modo de ejemplo, este artículo está escrito íntegramente en Rmarkdown (véase el código fuente aquí: https://github.com/ecoinfAEET/Reproducibilidad). Aquí (https://github.com/Pakillo/rmdTemplates) puede descargarse una plantilla para escribir artículos en Rmarkdown para la revista Ecosistemas. 
 
@@ -144,10 +144,9 @@ En el caso concreto de R, la integración de rmarkdown en Rstudio (www.rstudio.c
 
 ## Control de versiones
 
-El control de versiones es otro de los nudos conflictivos a lo largo del desarrollo de un proyecto. Muchos científicos se verán reflejados en la situación de la **Figura 5**. El sistema más común -y problemático- de control de versiones consiste en guardar copias de los archivos (e.g. un documento Word) con distintos nombres, en un intento de reflejar y tener un archivo de todos los cambios aplicados al documento. Este sistema lleva a la acumulación desmesurada de archivos muy similares cuyas modificaciones no son fácilmente comparables, dificultando reconstruir la historia del proyecto, volver atrás en caso de detectar errores, o colaborar con varios coautores que hacen modificaciones sobre el mismo documento.
+El control de versiones es otro de los nudos conflictivos a lo largo del desarrollo de un proyecto. El sistema más común -y problemático- de control de versiones consiste en guardar copias de los archivos (e.g. un documento Word) con distintos nombres, en un intento de reflejar y tener un archivo de todos los cambios aplicados al documento (**Fig. 4**). Este sistema lleva a la acumulación desmesurada de archivos muy similares cuyas modificaciones no son fácilmente comparables, dificultando reconstruir la historia del proyecto, volver atrás en caso de detectar errores, o colaborar con varios coautores que hacen modificaciones sobre el mismo documento. Herramientas como Google Docs, Dropbox, Authorea, u Overleaf representan un gran avance al respecto, pero están más enfocadas a la escritura colaborativa de manuscritos que a la integración dinámica de datos, texto, y código ejecutable como en los documentos de rmarkdown o IPython.
 
-En el campo de la programación existen sistemas de control de versiones mucho más eficientes (e.g. `git`, `subversion`) que recientemente se han incorporado como herramientas básicas de la ciencia reproducible [@Ram2013a]. `Git` es el sistema más utilizado hoy día, en conjunción con plataformas online como `GitHub` (https://github.com), `BitBucket`, o `GitLab`. Los sistemas de control de versiones se encargan de monitorizar automáticamente los cambios realizados en cualquier fichero, registrando *quién* hizo *qué* cambio, *cuándo* y *por qué* [@Blischak2016]. Git facilita enormemente la tarea de archivar, reconstruir y navegar por la historia de un proyecto. La integración de git en plataformas como GitHub facilita además enormemente el desarrollo conjunto de análisis, código y texto entre todos los colaboradores de un proyecto. A modo de ejemplo, este artículo se escribió utilizando `git` para el control de versiones, y GitHub para colaborar entre los autores. El desarrollo completo del artículo (incluyendo quién hizo qué cambios, cuándo y por qué) está disponible públicamente en GitHub: https://github.com/ecoinfAEET/Reproducibilidad/commits/master.
-
+En el campo de la programación existen sistemas de control de versiones muy eficientes (e.g. `git`, `subversion`) que recientemente se han incorporado como herramientas básicas de la ciencia reproducible [@Ram2013a]. `Git` es el sistema más utilizado hoy día, en conjunción con plataformas online como `GitHub` (https://github.com), `BitBucket`, o `GitLab`. Los sistemas de control de versiones se encargan de monitorizar automáticamente los cambios realizados en cualquier fichero, registrando *quién* hizo *qué* cambio, *cuándo* y *por qué* [@Blischak2016]. Git facilita enormemente la tarea de archivar, reconstruir y navegar por la historia de un proyecto. La integración de git en plataformas como GitHub facilita además enormemente el desarrollo conjunto de análisis, código y texto entre todos los colaboradores de un proyecto. A modo de ejemplo, este artículo se escribió utilizando `git` para el control de versiones, y GitHub para colaborar entre los autores. El desarrollo completo del artículo (incluyendo quién hizo qué cambios, cuándo y por qué) está disponible públicamente en GitHub: https://github.com/ecoinfAEET/Reproducibilidad/commits/master.
 
 
 
@@ -157,7 +156,7 @@ Mantener un sistema consistente de organizar todos los archivos relacionados con
 
 Hay muchas maneras de organizar un proyecto, y cada investigador elige la más conveniente en su caso. Pero sí existen algunos principios básicos a seguir (@Noble2009; véase también https://github.com/Reproducible-Science-Curriculum/rr-init, https://github.com/ropensci/rrrpkg y http://nicercode.github.io/blog/2013-04-05-projects/): (i) todos los ficheros relacionados con el proyecto están dentro del mismo directorio (e.g. un proyecto de Rstudio); (ii) existen subdirectorios independientes que contienen los datos, código, resultados y figuras, y manuscrito; (iii) los datos originales están en un directorio aparte y permanecen inalterados; (iv) los datos derivados van en otra carpeta y se generan mediante scripts; (v) las definiciones de funciones y el script que ejecuta el análisis son ficheros independientes; (vi) en el directorio raíz hay un *script maestro* que ejecuta todos los análisis requeridos para el proyecto; y (vii) en el directorio raíz hay un fichero README que describe el proyecto y sus componentes. 
 
-La **Figura 7a** representa un esqueleto básico de estructura de archivos siguiendo estos principios generales. Convenientemente, dicha estructura es muy similar a la de un paquete de R (**Fig. 7b**). Un paquete de R no es más que una forma estándar de organizar el código (ficheros) que nos permitirá ser más eficientes a la hora de usarlo, compartirlo y re-editarlo [@Varela2015]. Todos los paquetes de R tienen una estructura estándar con una carpeta 'R' donde residen las funciones, una carpeta 'man' que contiene los ficheros de ayuda de esas funciones, un fichero de texto 'NAMESPACE' (generado automáticamente) que especifica las funciones contenidas en el paquete y si dependen de funciones contenidas en otros paquetes, y un fichero 'DESCRIPTION' con los metadatos del paquete: nombre, objetivos, autores, y sus dependencias de otros paquetes. Además pueden añadirse carpetas incluyendo archivos de datos, tests para las funciones, etc. [@Wickham2015b], por lo que la estructura, siendo estándar, mantiene su flexibilidad.
+La **Figura 5a** representa un esqueleto básico de estructura de archivos siguiendo estos principios generales. Convenientemente, dicha estructura es muy similar a la de un paquete de R (**Fig. 5c**). Un paquete de R no es más que una forma estándar de organizar el código (ficheros) que nos permitirá ser más eficientes a la hora de usarlo, compartirlo y re-editarlo [@Varela2015]. Todos los paquetes de R tienen una estructura estándar con una carpeta 'R' donde residen las funciones, una carpeta 'man' que contiene los ficheros de ayuda de esas funciones, un fichero de texto 'NAMESPACE' (generado automáticamente) que especifica las funciones contenidas en el paquete y si dependen de funciones contenidas en otros paquetes, y un fichero 'DESCRIPTION' con los metadatos del paquete: nombre, objetivos, autores, y sus dependencias de otros paquetes. Además pueden añadirse carpetas incluyendo archivos de datos, tests para las funciones, etc. [@Wickham2015b], por lo que la estructura, siendo estándar, mantiene su flexibilidad.
 
 Crear un paquete de R es mucho más fácil de lo que puede parecer (ver **Apéndice 2**), y organizar un proyecto de investigación utilizando esa estructura estándar tiene muchas ventajas (cf. https://github.com/ropensci/rrrpkg), entre ellas: (i) el paquete provee una estructura de directorios para mantener los archivos organizados según los principios esbozados arriba; (ii) las funciones creadas para el análisis quedan documentadas, facilitando su reutilización posterior; (iii) las funciones pueden llevar tests asociados para comprobar que funcionan correctamente, incrementando la robustez del análisis; (iv) se describen explícitamente las dependencias de nuestro análisis en otros paquetes o programas externos, facilitando la reproducibilidad del proyecto. 
 
@@ -165,7 +164,7 @@ Crear un paquete de R es mucho más fácil de lo que puede parecer (ver **Apénd
 
 ## Dependencias externas
 
-Todo análisis reposa sobre plataformas, paquetes o programas que cambian a lo largo del tiempo (**Fig. 8**). Así, nuestros scripts pueden dejar de funcionar al introducirse cambios en alguno de los paquetes de los que depende el proyecto. Igualmente, para poder reproducir un análisis en otro ordenador habrá que instalar primero todas los programas que son necesarios para el proyecto. Por estos motivos conviene documentar las dependencias externas de nuestro análisis (e.g. qué paquetes de R se utilizan, especificando la versión), y asegurarse de que dicho software estará disponible a la hora de intentar reproducir el análisis. 
+Todo análisis reposa sobre plataformas, paquetes o programas que cambian a lo largo del tiempo (**Fig. 6**). Así, nuestros scripts pueden dejar de funcionar al introducirse cambios en alguno de los paquetes de los que depende el proyecto. Igualmente, para poder reproducir un análisis en otro ordenador habrá que instalar primero todas los programas que son necesarios para el proyecto. Por estos motivos conviene documentar las dependencias externas de nuestro análisis (e.g. qué paquetes de R se utilizan, especificando la versión), y asegurarse de que dicho software estará disponible a la hora de intentar reproducir el análisis. 
 
 Hay muchas maneras posibles de registrar las dependencias de nuestro proyecto. Ejecutar la función `sessionInfo` en R (o su equivalente `session_info` del paquete `devtools`) al finalizar el análisis es una de las más sencillas. Este comando devuelve un listado estructurado de todos los paquetes utilizados especificando su versión. Esta información puede ser procesada directamente por paquetes como `switchr` [@Becker2015] para instalar todas las dependencias requeridas en cualquier otro ordenador. Otras opciones incluyen el uso de los paquetes `rctrack` [@Liu2014b], `checkpoint` [@Analytics2015] y `packrat` [@Ushey2015]. Mientras `rctrack` y `packrat` almacenan una copia local de todos los paquetes utilizados en un proyecto, `checkpoint` descarga los paquetes desde un servidor de internet cuando se ejecuta. Estos paquetes son muy fáciles de utilizar y garantizan la reproducibilidad de nuestro proyecto en el futuro aunque cambien los paquetes o dependencias externas. Otras alternativas más avanzadas y versátiles incluyen `docker` [@Boettiger2015] y `drat` [@Eddelbuettel2015]. En el **Apéndice 1** hemos incluido enlaces para iniciarse en el uso de todas ellas.
 
@@ -226,21 +225,17 @@ kable(tabla2)
 
 ###### PIES DE FIGURA
 
-**Figura 1**. Habria que pedirle permiso al autor... No se si nos lo dara. http://www.sciencecartoonsplus.com/index.php
+**Figura 1**. Reproducibility gradient (redrawn from Peng 2011). Pedir permiso a Science.
 
-**Figura 2**. Habría que redibujar esta figura [voluntarios?], y pedir permiso a Science. 
+**Figura 2**. Workflow: revisar. [Antonio?]
 
-**Figura 3**. Workflow: revisar. [Antonio?]
+**Figura 3**. Ejemplo de documento escrito en Rmarkdown: código fuente en Rmarkdown (izquierda) y resultado (derecha). Si se descubre un error en los datos, las tablas y figuras se actualizan automáticamente. El formato de salida se puede elegir entre html, word, pdf y muchos otros (pandoc).
 
-**Figura 4**. Ejemplo de documento escrito en Rmarkdown: código fuente en Rmarkdown (izquierda) y resultado (derecha). Si se descubre un error en los datos, las tablas y figuras se actualizan automáticamente. El formato de salida se puede elegir entre html, word, pdf y muchos otros (pandoc).
+**Figure 4**. Multiples archivos locos frente a control de versiones con git.
 
-**Figure 5**. Version control al estilo PhDcomics. [pedir permiso]
+**Figure 5**. (a) Estructura minima de un repo. (b) Estructura mas avanzada (ver https://github.com/Reproducible-Science-Curriculum/rr-init y https://github.com/ropensci/rrrpkg. (c) Estructura de archivos en un paquete de R. 
 
-**Figure 6**. Ejemplo de historia de git/github. [usar captura de pantalla de github, o pintar commit history?]
-
-**Figure 7**. (a) Estructura general segun lo descrito en el texto (ver https://github.com/Reproducible-Science-Curriculum/rr-init y https://github.com/ropensci/rrrpkg. (b) Estructura de archivos en un paquete de R. [Sara?]
-
-**Figura 8**. Red de dependencias externas de un proyecto (incluir?)
+**Figura 6**. Red de dependencias externas de un proyecto (incluir?).
 
 
 ###### FIGURE LEGENDS
@@ -253,43 +248,39 @@ kable(tabla2)
 
 ###### FIGURA 1
 
-![](figuras/miracle.gif)
+![](figuras/gradiente_repro.png)
 
 
 
 ###### FIGURA 2
 
-![](figuras/peng.jpg)
+Workflow completo (Antonio)
 
 
 ###### FIGURA 3
 
-![](figuras/esquemav2.pdf)
-
-
-###### FIGURA 4
 
 ![](figuras/Rmd.PNG)
 ![](figuras/pdf.PNG)
 
+
+###### FIGURA 4
+
+![](figuras/nogit)
+![](figuras/git)
+
+
 ###### FIGURA 5
 
-![](figuras/phdcomic.gif)
+Estructura de archivos
+
 
 
 ###### FIGURA 6
 
-![](figuras/history.PNG)
-
-
-###### FIGURA 7
-
-![](figuras/directorios.PNG)
-
-
-###### FIGURA 8
-
 ![](figuras/sotobosque_dependencies.png)
+
+Simplificar
 
 
 ###### Mover lista de referencias a la sección de 'Referencias', más arriba en documento final.
