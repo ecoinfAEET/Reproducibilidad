@@ -99,12 +99,11 @@ A continuación presentamos los elementos más importantes de un flujo de trabaj
 ## Recolección y manejo de datos 
 
 
-El proceso de recolección y manejo de datos resulta crucial ya que cualquier error en esta primera etapa se propagará hasta los resultados finales. Por tanto es muy importante garantizar la calidad de este proceso, que podría dividirse en cinco etapas: (i) planificación; (ii) recolección; (iii) descripción; (iv) control de calidad; y (v) preservación [@Michener2012]. 
+El proceso de recolección y manejo de datos resulta crucial, ya que cualquier error en esta primera etapa se propagará hasta los resultados finales. Por tanto es muy importante garantizar la calidad de este proceso, que podría dividirse en cinco etapas: (i) planificación; (ii) recolección; (iii) descripción; (iv) control de calidad; y (v) preservación [@Michener2012]. 
 
 ### Planificación
 
-Una buena planificación es la mejor forma de asegurar la calidad de los datos. Muchas instituciones (como la National Science Foundation de Estados Unidos) requieren la presentación de un 'data management plan' con cada proyecto. Dicho plan debe incluir información detallada acerca de qué datos se van a obtener y cómo van a recogerse, almacenarse y compartirse [@Michener2015] (por ejemplo véase https://www.dataone.org/sites/all/documents/DMP_Copepod_Formatted.pdf). Existen herramientas como DMPTool (https://dmptool.org/) muy útiles para elaborar esta planificación.
-
+Una buena planificación es la mejor forma de asegurar la calidad de los datos. Muchas instituciones (como la National Science Foundation de Estados Unidos) requieren la presentación de un 'data management plan' con cada proyecto. Dicho plan debe incluir información detallada acerca de qué datos se van a obtener y cómo van a recogerse, almacenarse y compartirse [@Michener2015] (por ejemplo véase https://www.dataone.org/sites/all/documents/DMP_Copepod_Formatted.pdf). La existencia de un buen plan de gestión de los datos, aumenta el valor de los mismos en el transcurso del proyecto y mas allá de la terminación del mismo [@Ruegg2014]. Existen herramientas como DMPTool (https://dmptool.org/) muy útiles para elaborar esta planificación.
 
 ### Recolección
 
