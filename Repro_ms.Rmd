@@ -93,9 +93,6 @@ A continuación presentamos los elementos más importantes de un flujo de trabaj
 [Aquí debería ir la figura de Antonio sintetizando el workflow. Habría que actualizar la figura para reflejar el texto del ms]
 
 
-
-
-
 ## Recolección y manejo de datos 
 
 El proceso de recolección y manejo de datos resulta crucial, ya que cualquier error en esta primera etapa se propagará hasta los resultados finales. Por tanto es muy importante garantizar la calidad de este proceso, que podría dividirse en cinco etapas: (i) planificación; (ii) recolección; (iii) descripción; (iv) control de calidad; y (v) preservación [@Michener2012]. 
@@ -109,11 +106,13 @@ Una buena planificación es la mejor forma de asegurar la calidad de los datos. 
 El proceso de obtención de datos ecológicos varía enormemente según el tipo de estudio, desde la captura de organismos en el campo hasta descarga de imágenes de satélite. A pesar de esta heterogeneidad, un principio común a seguir es intentar conservar los datos brutos en su estado original de la mejor manera posible (por ejemplo, insectos capturados en un museo o una colección, fichas de campo en un archivo seguro, imágenes o capas GIS en un repositorio), con un identificador único y con los metadatos del recurso. Esto nos permitirá revisar estos datos en caso necesario. Complementariamente, la metodología de obtención de datos debe quedar perfectamente registrada. 
 
 
+### Descripción del conjunto de datos (metadatos)
 
-### Descripción (metadatos)
-
-Todo conjunto de datos debe ir acompañado de metadatos que provean una descripción detallada de lo que representa cada variable, cómo y dónde se tomó, en qué unidades está medida, etc. Estos metadatos pueden alojarse en un simple fichero de texto plano, pero en ecología existe un 'Ecological Metadata Language' (http://knb.ecoinformatics.org/software/eml/) que sirve de estándar para describir datos de manera interpretable por una computadora, lo cual trae consigo muchas ventajas. Nuevamente existen herramientas para facilitar la creación de estos metadatos (e.g. `Morpho` http://knb.ecoinformatics.org/morphoportal.jsp, o el paquete de R `eml` https://github.com/ropensci/EML/).
-
+Todo conjunto de datos debe ir acompañado de una información básica que provea una descripción detallada de lo que representa cada variable, cómo y dónde se tomó, en qué unidades está medida, cuando se tomaron los datos, quien los tomó, etc. Todos esta información, conocida como metadatos [@Michener2006] proporcionan lo necesario para una correcta interpretación de los datos, ya que nos informa del contexto en el que se tomaron los datos, los protocolos utilizados, la estructura y el formato que presentan. 
+Que un conjunto de datos esté bien documentado aporta muchos beneficios [@Michener1997; @Alonso2006; @Michener2006], pero sobre todo aumenta la potencialidad de la utilización de los datos durante el transcurso de un proyecto, y su reutilización en el futuro tras la finalización del proyecto. 
+Documentar un conjunto de datos requiere esfuerzo, pero la cantidad de información que aportemos a nuestro conjunto de datos redundará en beneficio de la re-utilización de los mismos [@Fegraus2005].
+Por otro lado, aunque los metadatos pueden alojarse en un simple fichero de datos, es importante utilizar una terminología común que permita una correcta integración del conjunto de datos. Para ello existen los llamados estándares de metadatos, que proporcionan un conjunto común de términos comprensibles para describir los datos, de forma que los metadatos quedan recogidos de una manera estructurada, facilitando las tareas de validación, integración y síntesis de los datos de forma automatizada [@Alonso2006]. Existen diferentes estándares de metadatos que varían en función del propósito y la disciplina científica [@Sangil2010]. En ecología existe el estándar llamado 'Ecological Metadata Language' (EML) (http://knb.ecoinformatics.org/software/eml/) que se está utilizando para compartir datos ecológicos por ejemplo en las redes de seguimiento ecológico a largo plazo (LTER; Long-term Ecological Research). 
+Para la creación de metadatos existen diferentes herramientas o editores de metadatos. Por ejemplo dentro de la red LTER existe un sistema online, llamado DEIMS (Drupal Ecological Information Management System), que permite entre otros la creación de metadatos en formato EML [@Vanderbilt2015]. Asimismo existe el paquete de R `eml` que permite la creación de metadatos utilizando R (https://github.com/ropensci/EML/). 
 
 ### Control de calidad
 
