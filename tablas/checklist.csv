@@ -1,20 +1,20 @@
-Los datos brutos originales están disponibles 
+Los datos originales están disponibles 
 Los datos han sido revisados y validados (preferiblemente de manera automática)
 "Existe un conjunto de metadatos explicando la estructura, formato y contenido de los datos"
 "Los datos están almacenados en formato de texto plano (txt, csv)"
-Los datos se han subido a un repositorio online
-Todo el análisis y manejo de datos se hace mediante código (scripts)
-El código está bien documentado
+Los datos se han subido a un repositorio en la nube
+Todo el análisis y manejo de datos se hace mediante código ('scripts')
+El código es inteligible y está bien documentado
 El código genera las tablas y figuras finales
 Todos los resultados del trabajo se actualizan dinámicamente (nunca manualmente)
-"Todos los archivos importantes (datos, código) están versionados (git) "
+"Todos los archivos importantes (datos, código) están versionados (por ejemplo usando git) "
 Existe copia de seguridad de todos los archivos importantes en (cuasi) tiempo real
 Todos los archivos relacionados con el proyecto están dentro del mismo directorio
-"Existen subdirectorios independientes para los datos, código, figuras, etc"
+"Existen subdirectorios independientes para los datos, código, figuras, etc."
 Los datos brutos están separados de los datos derivados
 El código utiliza funciones que se definen en un fichero independiente
 Se han escrito tests que comprueban que las funciones actúan correctamente
-Existe un script maestro que ejecuta todos los pasos del análisis ordenadamente
+Existe un 'script' maestro que ejecuta todos los pasos del análisis ordenadamente
 Existe un documento README que explica los objetivos y organización del proyecto
 Existe un registro detallado de todas las dependencias de software externo (incluyendo la versión)
 Es posible instalar todas esas dependencias en el futuro o en otro ordenador
