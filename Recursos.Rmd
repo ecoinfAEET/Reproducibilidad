@@ -9,6 +9,8 @@ output: pdf_document
 
 - [Reproducible research in computational science](http://dx.doi.org/10.1126/science.1213847)
 
+- [Nature special: Challenges in irreproducible research](http://www.nature.com/news/reproducibility-1.17552)
+
 - [Ten simple rules for reproducible computational research](http://dx.doi.org/10.1371/journal.pcbi.1003285)
 
 - [Best practices for scientific computing](http://dx.doi.org/10.1371/journal.pbio.1001745)
@@ -47,7 +49,7 @@ output: pdf_document
 
 - [Ten simple rules for the care and feeding of scientific data](http://dx.doi.org/10.1371/journal.pcbi.1003542)
 
-- [Ten simple rules for digital data storage](10.7287/peerj.preprints.1448v1)
+- [Ten simple rules for digital data storage](http://10.7287/peerj.preprints.1448v1)
 
 - [Nine simple ways to make it easier to (re)use your data](http://dx.doi.org/10.4033/iee.2013.6b.6.f)
 
