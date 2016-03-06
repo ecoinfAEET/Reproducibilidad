@@ -184,8 +184,7 @@ La transición hacia la reproducibilidad puede hacerse gradualmente. Un buen pun
 # Agradecimientos
 
 
-FRS está financiado por una ayuda de formación postdoctoral del Ministerio de Economía y Competitividad. 
-Los autores desean agradecer expresamente a todos los programadores, instituciones y empresas que hacen posible, muchas veces de manera altruista, la ciencia reproducible.
+FRS está financiado por una ayuda de formación postdoctoral del Ministerio de Economía y Competitividad. SV tiene un contrato postdoctoral del programa propio de la Universidad de Alcalá. Los autores desean agradecer expresamente a todos los programadores, instituciones y empresas que hacen posible, muchas veces de manera altruista, la ciencia reproducible. 
 
 
 COAUTORES: completad please!
