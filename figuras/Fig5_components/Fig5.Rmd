@@ -1,0 +1,29 @@
+---
+title: "Figure 5: estructura de directorios"
+author: "Francisco Rodriguez-Sanchez"
+date: "4 March 2016"
+output: pdf_document
+---
+
+```
+myproject
+|- README         # información general
+|- data/          # datos depurados
+|- data-raw/      # datos brutos
+|- analysis.Rmd   # fichero Rmarkdown
+```
+
+```
+miproyecto
+|- README         # información general
+|- DESCRIPTION    # metadatos y dependencias del paquete 
+|- NAMESPACE      # generado automáticamente
+|- data/          # datos depurados
+|- data-raw/      # datos brutos
+|- R/             # definición de funciones 
+|- man/           # documentación de las funciones
+|- tests/         # tests de las funciones
+|- analysis/      # ficheros Rmarkdown, figuras, etc.
+```
+
+

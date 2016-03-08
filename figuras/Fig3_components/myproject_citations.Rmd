@@ -1,0 +1,49 @@
+---
+title: "Does sunshine make people happy?"
+output: pdf_document
+bibliography: refs.bib
+---
+
+# Introduction
+
+Climate influences individual well-being [@Rehdanz_2005]. 
+However, ...
+
+# Methods
+
+```{r echo=FALSE} 
+# read data
+data <- read.table("data.txt", header=T)   
+data[10,1] <- 11   # correct error
+
+# fit linear model
+model <- lm(happiness ~ sunshine, data=data)  
+```
+
+We collected data on `r nrow(data)` individuals and fitted a 
+linear model.
+
+# Results
+
+We found that...
+
+```{r echo=FALSE, results='asis'}
+# make table with model output
+print(xtable::xtable(model), comment = FALSE)    
+```
+
+```{r echo=FALSE, fig.height=3, fig.width=3, fig.align='center'}
+visreg::visreg(model) # plot
+```
+
+# Discussion
+
+Our results confirm that happiness is related to 
+sunshine (slope = `r coef(model)[2]`).
+
+# References
+
+
+
+
+
