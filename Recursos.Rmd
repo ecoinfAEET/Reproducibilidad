@@ -89,6 +89,8 @@ output: pdf_document
 
 - [Jupyter](https://jupyter.org/)
 
+- [Interactive notebooks: sharing the code](http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261)
+
 - [Dynamic documents with R and knitr](https://www.crcpress.com/Dynamic-Documents-with-R-and-knitr-Second-Edition/Xie/9781498716963)
 
 - [Report writing for data science in R](https://leanpub.com/reportwriting)
@@ -96,6 +98,8 @@ output: pdf_document
 - [Implementing reproducible research](https://osf.io/s9tya/wiki/home/)
 
 - [Reproducible Research with R and Rstudio](http://christophergandrud.github.io/RepResR-RStudio/)
+
+
 
 
 
