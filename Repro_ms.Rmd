@@ -259,27 +259,27 @@ pander::pandoc.table(tabla2, split.table = Inf, split.cells = 100, justify = "le
 
 ###### FIGURA 1
 
-![](figuras/Fig1.tif)
+![](figuras/Figuras_definitivas/Figs_PNG/Fig1.png)
 
 
 ###### FIGURA 2
 
-![](figuras/Fig2.tif)
+![](figuras/Figuras_definitivas/Figs_PNG/Fig2.png)
 
 
 ###### FIGURA 3
 
-![](figuras/Fig3.tif)
+![](figuras/Figuras_definitivas/Figs_PNG/Fig3.png)
 
 
 ###### FIGURA 4
 
-![](figuras/git.tiff)
+![](figuras/Figuras_definitivas/Figs_PNG/Fig4.png)
 
 
 ###### FIGURA 5
 
-![](figuras/Fig5.tif)
+![](figuras/Figuras_definitivas/Figs_PNG/Fig5.png)
 
 
 
