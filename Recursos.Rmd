@@ -57,6 +57,8 @@ output: pdf_document
 
 - [Data Management Planning Tool](https://dmptool.org/)
 
+- [Ejemplo de data management plan](https://www.dataone.org/sites/all/documents/DMP_Copepod_Formatted.pdf)
+
 - [Bad data guide](https://github.com/Quartz/bad-data-guide)
 
 - [Data Carpentry Spreadsheets for Ecology](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)
