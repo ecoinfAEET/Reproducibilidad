@@ -1,7 +1,7 @@
 Los datos originales están disponibles 
 Los datos han sido revisados y validados (preferiblemente de manera automática)
 "Existe un conjunto de metadatos explicando la estructura, formato y contenido de los datos"
-"Los datos están almacenados en formato de texto plano (txt, csv)"
+"Los datos están almacenados en formato abierto (e.g. txt, csv)"
 Los datos se han subido a un repositorio en la nube
 Todo el análisis y manejo de datos se hace mediante código ('scripts')
 El código es inteligible y está bien documentado
