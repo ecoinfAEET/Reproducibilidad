@@ -1,0 +1,77 @@
+---
+title: "Ciencia reproducible: qué, por qué, cómo"
+subtitle: "F. Rodríguez-Sánchez, A.J. Pérez-Luque, I. Bartomeus, S. Varela"
+output: 
+  word_document:
+    reference_docx: membrete.docx
+bibliography: references.bib
+csl: ecosistemas.csl
+---
+
+`r Sys.Date()`
+
+Estimado Dr. Cayuela:
+
+Gracias por considerar nuestro manuscrito sobre ciencia reproducible para su publicación en la revista Ecosistemas. Igualmente agradecemos a los revisores su esfuerzo, la buena acogida a nuestro manuscrito y las sugerencias de mejora. A continuación respondemos a sus comentarios punto por punto.
+
+
+
+## Revisor/a A
+
+> Línea 217: ¿Estamos seguro que el cloud es lo mejor que va a existir? ¿O es lo mejor que tenemos ahora pero quién sabe qué vendrá en el futuro? 
+
+Numerosos estudios y autores [e.g. @Vines2014; @Hart2016] coinciden en que la mejor forma de almacenar y compartir datos es utilizando repositorios públicos en la nube. La pérdida/robo/avería de discos y ordenadores, o la imposibilidad de leer los datos por encontrarse en soportes de hardware (e.g. floppy disks) o software obsoletos (e.g. archivos en formato de software propietario) son las principales causas que impiden el acceso a los datos con el tiempo [@Vines2014]. Conocemos muchos ejemplos directos de todos estos casos (ordenador perdido o inservible, disco duro estropeado, archivo ilegible con los programas actuales). No sabemos lo que ocurrirá en el futuro, pero el almacenamiento en la nube es ahora mismo la forma más segura, fácil y persistente de asegurar la reproducibilidad de los datos, y probablemente sea así por mucho tiempo. Hemos modificado el texto muy ligeramente (L XXXX) para indicar que esta es la mejor opción en la actualidad.
+
+
+> Línea 226: el código no siempre es reproducible en mi experiencia. Yo tengo código que era perfectamente funcional con una versión de algún paquete de R y luego por cambios en dicho paquete se vuelve irreproducible o da errores o valores distintos. El hecho de que los lenguajes de
+programación evolucionen hace que no siempre sea fácil la traducción. Ah, al seguir leyendo veo que este tema se trata más adelante (línea 311), quizá se podría insertar aquí una pequeña nota de preaviso.
+
+Gracias por la sugerencia. Hemos incluido una pequeña anotación al respecto en L XXX-XXX: "El código contiene un registro perfecto de todos los pasos seguidos en el análisis, muy útil para compartir con colaboradores o reutilizar algún tiempo después (siempre que podamos reproducir el entorno de computación, véase sección de dependencias externas más abajo)."
+
+
+> Figura 2: error tipográfico, texo en lugar de texto.
+
+Corregido.
+
+
+> Línea 544: error tipográfico, reutilización.
+
+Corregido.
+
+
+
+
+
+## Revisor/a B
+
+
+> En general, el manuscrito está muy bien escrito y fácil de seguir. Sin embargo, echo de menos una sección que mencionase los desafíos del aprendizaje. Normalmente, profesores universitarios tienen una demanda muy grande de servicios. [...] Uno de los grandes desafíos para los investigadores y profesores universitarios es encontrar tiempo para aprender una metodología nueva y compleja. Los autores podrían mencionar esta limitación en el texto. 
+
+Compartimos plenamente la preocupación por las múltiples ocupaciones de los investigadores, y el escaso tiempo disponible para aprender cosas nuevas. Evidentemente las causas de ello son múltiples y están totalmente fuera de nuestro alcance. El objetivo de este manuscrito es precisamente facilitar el aprendizaje de estas técnicas para investigadores que interna (por convencimiento personal) o externamente (por requerimiento de las revistas o fuentes de financiación) quieren empezar a utilizar o profundizar en los flujos de trabajo reproducibles. Este manuscrito debería ser una ayuda al respecto, más que una nueva carga.
+
+Ya mencionamos en el texto (L XXXX-XXXX) que el aprendizaje, como siempre ocurre, requiere cierta inversión de tiempo y esfuerzo. En nuestra opinión, la inversión se ve compensada con creces al ganar en reproducibilidad, calidad, y habilidad para realizar análisis complejos, entre otras cosas. Pero, aunque en el manuscrito defendemos la conveniencia de practicar la ciencia reproducible, la decisión de cuánto invertir y cuán lejos llegar ha de tomarla cada investigador individualmente en función de sus intereses y condicionantes personales. En nuestra experiencia, cuando se instruye a los estudiantes de master y doctorado en flujos de trabajo reproducibles, estos no tienen mayor problema en adquirirlos y desarrollarlos. Para investigadores senior con múltiples ocupaciones y falta de tiempo puede ser algo más costoso. Esperamos que este manuscrito ayude en el proceso a aquellos que decidan invertir algo de esfuerzo en mejorar la reproducibilidad de su trabajo.
+
+
+> Otra limitación es que lenguaje de programación, en general, no es incluida en los currículos de la mayoría de los cursos de ecología o cursos afines. Algunas Universidades/Departamentos imparten cursos “puntuales” para un publico muy específico. Este aprendizaje es fundamental para viabilizar una ciencia reproducible. Aunque los autores especifican que “La transición hacia la reproducibilidad puede hacerse gradualmente” (Línea 345), creo que los autores podrían desarrollar un poco más este tema. Los autores podrían reconocer esta limitación en el texto y proponer estrategias para la enseñanza de la programación en carreras de ecología/ambientales y carreras afines en el nivel superior. Por ejemplo, los profesores/instructores involucrados en este proceso deben tener en cuenta: el desconocimiento de la materia, carencia de disciplina de programación, desinterés, apatía por el lenguaje de programación o carencias de habilidades para programar.
+
+Estamos totalmente de acuerdo en la importancia de formar adecuadamente a los nuevos ecólogos/científicos en este tipo de prácticas. Afortunadamente, cada vez son más las licenciaturas y programas de master que incluyen asignaturas específicas de análisis de datos y programación de código (fundamentalmente R). Varios de los autores estamos implicados en este tipo de docencia, y los resultados son excelentes. Por ello insistimos en el manuscrito (L XXX-XXXX) en la importancia de la formación. Si conseguimos comunicar la importancia de la ciencia reproducible, este tipo de contenidos recibirá aún más atención en el futuro. Los autores de este manuscrito hemos creado un grupo de trabajo sobre Ecoinformática dentro de la AEET para abordar precisamente este tipo de asuntos. Por ejemplo, para el próximo congreso de la AEET hemos organizado dos talleres gratuitos sobre ciencia reproducible con Rmarkdown, y control de versiones con Git/GitHub. Creemos que cursos de formación como estos, junto con este manuscrito, pueden contribuir a facilitar, que no complicar, el trabajo de los ecólogos y los científicos en general.
+
+
+> El formateo de las Tablas 1 and 2 debe ser mejorado. Cada tabla debe aportar su correspondiente encabezamiento explicativo.
+
+ANY IDEAS?
+
+
+
+Esperamos que, tras estas modificaciones, nuestro manuscrito sea apto para ser publicado en Ecosistemas.
+
+
+Saludos cordiales,
+
+
+Los autores
+
+
+Referencias
+
+
