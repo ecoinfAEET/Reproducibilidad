@@ -209,14 +209,14 @@ FRS está financiado por una ayuda de formación postdoctoral del Ministerio de 
 
 ###### TABLA 1
 
-**Tabla 1**. Beneficios de la ciencia reproducible para el investigador. 
+**Tabla 1**. Ventajas para el investigador derivadas de la adopción de flujos de trabajo reproducibles. 
 
-**Table 1**. Personal benefits of reproducible science for researchers.  
+**Table 1**. Personal benefits for researchers from developing reproducible workflows .  
 
 
 ```{r tabla1, echo = FALSE, results = "asis"}
 tabla1 <- read.csv("tablas/tabla_ventajas_reproducibilidad.csv", header = FALSE)
-colnames(tabla1) <- NULL
+colnames(tabla1) <- "Beneficios de la ciencia reproducible para el investigador"
 pander::pandoc.table(tabla1, split.table = Inf, split.cells = 100, justify = "left")
 ```
 
@@ -231,7 +231,7 @@ pander::pandoc.table(tabla1, split.table = Inf, split.cells = 100, justify = "le
 
 ```{r tabla2, echo = FALSE, results = "asis"}
 tabla2 <- read.csv("tablas/checklist.csv", header = FALSE)
-colnames(tabla2) <- NULL
+colnames(tabla2) <- "Criterios de reproducibilidad"
 pander::pandoc.table(tabla2, split.table = Inf, split.cells = 100, justify = "left")
 ```
 

@@ -173,6 +173,8 @@ output: pdf_document
 
 - [R packages (K. Broman)](http://kbroman.org/pkg_primer/)
 
+- [Choose a license](http://choosealicense.com/)
+
 - [A minimal tutorial on make (K. Broman)](http://kbroman.org/minimal_make/) 
 
 - [remake](https://github.com/richfitz/remake)
