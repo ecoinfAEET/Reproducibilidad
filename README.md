@@ -3,7 +3,7 @@
 # Reproducible science: what, why, how
 
 
-Rodríguez-Sánchez F, Pérez-Luque AJ, Bartomeus I, Varela S (2016) Ciencia reproducible: qué, por qué, cómo. (*ms submitted to Ecosistemas*)
+Rodríguez-Sánchez F, Pérez-Luque AJ, Bartomeus I, Varela S (2016) Ciencia reproducible: qué, por qué, cómo. (*en revisión en Ecosistemas*)
 
 Manuscrito en formato Rmarkdown: [Repro_ms.Rmd](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Repro_ms.Rmd)
 

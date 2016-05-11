@@ -18,6 +18,7 @@ miproyecto
 |- README         # información general
 |- DESCRIPTION    # metadatos y dependencias del paquete 
 |- NAMESPACE      # generado automáticamente
+|- makefile       # script maestro que ejecuta el análisis
 |- data/          # datos depurados
 |- data-raw/      # datos brutos
 |- R/             # definición de funciones 

@@ -7,6 +7,7 @@ output: pdf_document
 
 # Recursos generales sobre reproducibilidad
 
+
 - [Reproducible research in computational science](http://dx.doi.org/10.1126/science.1213847)
 
 - [Nature special: Challenges in irreproducible research](http://www.nature.com/news/reproducibility-1.17552)
@@ -39,11 +40,14 @@ output: pdf_document
 
 - [Digital History Methods in R](http://lincolnmullen.com/projects/dh-r/)
 
+- [Doing reproducible science: from your hard-won data to a publishable manuscript without going mad](https://github.com/Pakillo/ReproducibleScience/raw/master/ReproducibleScience.pdf)
+
 
 
 
 
 # Manejo de datos
+
 
 - [A guide to data management in ecology and evolution (British Ecological Society)](http://www.britishecologicalsociety.org/wp-content/uploads/Publ_Data-Management-Booklet.pdf)
 
@@ -51,7 +55,7 @@ output: pdf_document
 
 - [Ten simple rules for the care and feeding of scientific data](http://dx.doi.org/10.1371/journal.pcbi.1003542)
 
-- [Ten simple rules for digital data storage](http://10.7287/peerj.preprints.1448v1)
+- [Ten simple rules for digital data storage](https://doi.org/10.7287/peerj.preprints.1448v2)
 
 - [Nine simple ways to make it easier to (re)use your data](http://dx.doi.org/10.4033/iee.2013.6b.6.f)
 
@@ -75,7 +79,11 @@ output: pdf_document
 
 - [Repositorios de datos](http://www.re3data.org/)
 
+- [Open Science Framework](http://osf.io)
+
 - [Paquetes de rOpenSci para publicación de datos](http://ropensci.org/packages/#data_publication)
+
+- [Paquete de R para interaccionar con Open Science Framework](https://github.com/chartgerink/osfr)
 
 - [Ecological Metadata Language](http://knb.ecoinformatics.org/software/eml/)
 
@@ -84,6 +92,7 @@ output: pdf_document
 
 
 # Análisis de datos y documentos dinámicos
+
 
 - [knitr](http://yihui.name/knitr/)
 
@@ -110,6 +119,7 @@ output: pdf_document
 
 
 # Control de versiones (Git & GitHub)
+
 
 - [A Quick Introduction to Version Control with Git and GitHub](http://dx.doi.org/10.1371/journal.pcbi.1004668)
 
@@ -148,6 +158,7 @@ output: pdf_document
 
 # Organización de proyectos y creación de paquetes
 
+
 - [A quick guide to organizing computational biology projects](http://dx.doi.org/10.1371/journal.pcbi.1000424)
 
 - [Reproducible Research Project Initialization](https://github.com/Reproducible-Science-Curriculum/rr-init)
@@ -162,6 +173,12 @@ output: pdf_document
 
 - [R packages (K. Broman)](http://kbroman.org/pkg_primer/)
 
+- [Choose a license](http://choosealicense.com/)
+
+- [A minimal tutorial on make (K. Broman)](http://kbroman.org/minimal_make/) 
+
+- [remake](https://github.com/richfitz/remake)
+
 
 
 
@@ -169,6 +186,7 @@ output: pdf_document
 
 
 # Manejo de dependencias
+
 
 - [rctrack: An R package that automatically collects and archives details for reproducible computing](http://dx.doi.org/10.1186/1471-2105-15-138)
 
@@ -180,7 +198,11 @@ output: pdf_document
 
 - [An introduction to Docker for reproducible research](http://dx.doi.org/10.1145/2723872.2723882)
 
+- [R Docker tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
+
 - [drat: R repositories made easy](http://eddelbuettel.github.io/drat/)
+
+
 
 
 
