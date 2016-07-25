@@ -127,6 +127,10 @@ output: pdf_document
 
 - [Git and GitHub (Hadley Wickham)](http://r-pkgs.had.co.nz/git.html)
 
+- [R development using GitHub](https://github.com/MangoTheCat/github-workshop#readme)
+
+- [Happy Git and GitHub for the useR](http://happygitwithr.com/)
+
 - [Working with RStudio, Git, GitHub (STAT 545)](http://stat545-ubc.github.io/git00_index.html)
 
 - [Version control with git (R. Fitzjohn)](http://nicercode.github.io/2014-02-13-UNSW/lessons/70-version-control/)
