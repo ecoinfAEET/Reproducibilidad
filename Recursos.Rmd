@@ -87,6 +87,8 @@ output: pdf_document
 
 - [Ecological Metadata Language](http://knb.ecoinformatics.org/software/eml/)
 
+- [The what, why, and how of born-open data](http://link.springer.com/article/10.3758%2Fs13428-015-0630-z)
+
 
 
 
