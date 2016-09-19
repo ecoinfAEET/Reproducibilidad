@@ -123,6 +123,8 @@ output: pdf_document
 # Control de versiones (Git & GitHub)
 
 
+- [Why you need version control](http://ellisp.github.io/blog/2016/09/16/version-control)
+
 - [A Quick Introduction to Version Control with Git and GitHub](http://dx.doi.org/10.1371/journal.pcbi.1004668)
 
 - [Git can facilitate greater reproducibility and increased transparency in science](http://dx.doi.org/10.1186/1751-0473-8-7)
@@ -156,6 +158,8 @@ output: pdf_document
 - [Hello World (GitHub first steps)](https://guides.github.com/activities/hello-world/)
 
 - [GitHub guides](https://guides.github.com/)
+
+
 
 
 
