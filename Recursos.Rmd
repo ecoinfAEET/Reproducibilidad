@@ -1,6 +1,6 @@
 ---
 title: "Recursos sobre ciencia reproducible"
-output: pdf_document
+output: github_document
 ---
 
 
