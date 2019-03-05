@@ -10,9 +10,9 @@ Rodríguez-Sánchez F, Pérez-Luque AJ, Bartomeus I, Varela S (2016) Ciencia rep
 
 Manuscrito: [[Rmarkdown]](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Repro_ms.Rmd) [[PDF]](http://www.revistaecosistemas.net/index.php/ecosistemas/article/download/1178/973)
 
-Recursos sobre ciencia reproducible: [Recursos.Rmd](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Recursos.Rmd)
+Recursos sobre ciencia reproducible: [Recursos.md](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Recursos.md)
 
 Creación de paquetes en R: [PaquetesR.Rmd](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/PaquetesR.Rmd)
 
-[Tutorials and resources on reproducible science, data management, version control, etc](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Recursos.Rmd)
+[Tutorials and resources on reproducible science, data management, version control, etc](https://github.com/ecoinfAEET/Reproducibilidad/blob/master/Recursos.md)
 
